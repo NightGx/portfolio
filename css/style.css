@@ -15,6 +15,12 @@
   --text-muted: #a3a3a3;
   --accent: #ffffff;
   --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Fond animé */
+  --stripe-color-1: #47007038;
+  --stripe-color-2: #a723f336;
+  --stripe-size: 500px;
+  --stripe-speed: 15s;
 }
 
 html {
@@ -27,6 +33,46 @@ body {
   font-family: var(--font-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+/* --- Arrière-plan animé en diagonale --- */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--stripe-color-1),
+    var(--stripe-color-1) var(--stripe-size),
+    var(--stripe-color-2) var(--stripe-size),
+    var(--stripe-color-2) calc(var(--stripe-size) * 2)
+  );
+  background-size: calc(var(--stripe-size) * 2 * 1.414) calc(var(--stripe-size) * 2 * 1.414);
+  animation: moveStripes var(--stripe-speed) linear infinite;
+}
+
+@keyframes moveStripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: calc(var(--stripe-size) * 2 * 1.414) 0;
+  }
+}
+
+/* Pause et Accessibilité Motion */
+body.bg-paused .animated-bg {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-bg {
+    animation-play-state: paused !important;
+  }
 }
 
 /* --- Layout général (Mobile-First) --- */
@@ -86,7 +132,7 @@ p {
   gap: 1rem;
   max-width: 800px;
   margin: 0 auto;
-  scrollbar-width: none; /* Cache la barre de défilement horizontal sur mobile */
+  scrollbar-width: none;
 }
 
 .nav-container::-webkit-scrollbar {
@@ -104,6 +150,52 @@ p {
   color: var(--text-main);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background-color: var(--border-color);
+}
+
+/* Empêche les SVG de bloquer le clic sur le bouton */
+.icon-btn svg,
+.icon-btn svg * {
+  pointer-events: none;
+}
+
+/* Bascule d'affichage des SVG Play / Pause */
+#bg-toggle-btn .icon-pause {
+  display: block;
+}
+#bg-toggle-btn .icon-play {
+  display: none;
+}
+
+body.bg-paused #bg-toggle-btn .icon-pause {
+  display: none;
+}
+body.bg-paused #bg-toggle-btn .icon-play {
+  display: block;
+}
+
 .lang-switch {
   background: transparent;
   color: var(--text-main);
@@ -113,21 +205,14 @@ p {
   font-size: 0.8rem;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .lang-switch:hover {
   background-color: var(--border-color);
 }
 
-/* --- Section Présentation --- */
-.hero-tagline {
-  color: var(--text-main);
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-/* --- Section Projets (CSS Grid) --- */
+/* --- Section Projets --- */
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -176,7 +261,7 @@ p {
   text-decoration: underline;
 }
 
-/* --- Section CV --- */
+/* --- Section CV (Boutons transparents avec inversion) --- */
 .resume-actions {
   display: flex;
   flex-direction: column;
@@ -184,9 +269,9 @@ p {
   margin-top: 1.5rem;
 }
 
+/* Les deux boutons CV sont transparents par défaut */
 .btn-resume-download,
-.btn-resume-view,
-.btn-submit {
+.btn-resume-view {
   display: inline-block;
   text-align: center;
   padding: 0.75rem 1.25rem;
@@ -195,26 +280,25 @@ p {
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.btn-resume-download,
-.btn-submit {
-  background-color: var(--accent);
-  color: #000;
-  border: none;
-}
-
-.btn-resume-view {
   background-color: transparent;
   color: var(--text-main);
   border: 1px solid var(--border-color);
+  /* Ajout des transitions fluides pour la couleur et la taille */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
 }
 
+/* Au survol : ils deviennent pleins avec le texte en noir */
 .btn-resume-download:hover,
-.btn-resume-view:hover,
-.btn-submit:hover {
-  opacity: 0.85;
+.btn-resume-view:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Au clic : léger effet d'enfoncement physique */
+.btn-resume-download:active,
+.btn-resume-view:active {
+  transform: scale(0.98);
 }
 
 /* --- Section Contact --- */
@@ -254,13 +338,37 @@ p {
   padding: 0.75rem;
   border-radius: 6px;
   font-family: inherit;
-  font-size: 1rem; /* 16px minimum pour empêcher le zoom forcé sur mobile */
+  font-size: 1rem;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: #555;
+}
+
+/* --- Bouton d'envoi du formulaire --- */
+.btn-submit {
+  display: inline-block;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--accent); /* Reste blanc par défaut */
+  color: #000000;
+  border: none;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+  opacity: 0.85;
+}
+
+/* Au clic : même effet d'enfoncement que les autres boutons */
+.btn-submit:active {
+  transform: scale(0.98);
 }
 
 /* --- Footer --- */
@@ -271,7 +379,7 @@ p {
   color: var(--text-muted);
 }
 
-/* --- Media Queries (Écrans plus larges / Tablettes et Desktop) --- */
+/* --- Media Queries --- */
 @media (min-width: 640px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
