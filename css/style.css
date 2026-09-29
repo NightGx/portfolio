@@ -261,7 +261,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
   text-decoration: underline;
 }
 
-/* --- Section CV --- */
+/* --- Section CV (Boutons transparents avec inversion) --- */
 .resume-actions {
   display: flex;
   flex-direction: column;
@@ -269,9 +269,9 @@ body.bg-paused #bg-toggle-btn .icon-play {
   margin-top: 1.5rem;
 }
 
+/* Les deux boutons CV sont transparents par défaut */
 .btn-resume-download,
-.btn-resume-view,
-.btn-submit {
+.btn-resume-view {
   display: inline-block;
   text-align: center;
   padding: 0.75rem 1.25rem;
@@ -280,19 +280,25 @@ body.bg-paused #bg-toggle-btn .icon-play {
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
-}
-
-.btn-resume-download,
-.btn-submit {
-  background-color: var(--accent);
-  color: #000;
-  border: none;
-}
-
-.btn-resume-view {
   background-color: transparent;
   color: var(--text-main);
   border: 1px solid var(--border-color);
+  /* Ajout des transitions fluides pour la couleur et la taille */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Au survol : ils deviennent pleins avec le texte en noir */
+.btn-resume-download:hover,
+.btn-resume-view:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Au clic : léger effet d'enfoncement physique */
+.btn-resume-download:active,
+.btn-resume-view:active {
+  transform: scale(0.98);
 }
 
 /* --- Section Contact --- */
@@ -339,6 +345,30 @@ body.bg-paused #bg-toggle-btn .icon-play {
 .form-group textarea:focus {
   outline: none;
   border-color: #555;
+}
+
+/* --- Bouton d'envoi du formulaire --- */
+.btn-submit {
+  display: inline-block;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--accent); /* Reste blanc par défaut */
+  color: #000000;
+  border: none;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+  opacity: 0.85;
+}
+
+/* Au clic : même effet d'enfoncement que les autres boutons */
+.btn-submit:active {
+  transform: scale(0.98);
 }
 
 /* --- Footer --- */
