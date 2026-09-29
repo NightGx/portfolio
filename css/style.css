@@ -15,6 +15,12 @@
   --text-muted: #a3a3a3;
   --accent: #ffffff;
   --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Fond animé */
+  --stripe-color-1: #47007038;
+  --stripe-color-2: #a723f336;
+  --stripe-size: 500px;
+  --stripe-speed: 15s;
 }
 
 html {
@@ -27,6 +33,35 @@ body {
   font-family: var(--font-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+/* --- Arrière-plan animé en diagonale --- */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--stripe-color-1),
+    var(--stripe-color-1) var(--stripe-size),
+    var(--stripe-color-2) var(--stripe-size),
+    var(--stripe-color-2) calc(var(--stripe-size) * 2)
+  );
+  background-size: calc(var(--stripe-size) * 2 * 1.414) calc(var(--stripe-size) * 2 * 1.414);
+  animation: moveStripes var(--stripe-speed) linear infinite;
+}
+
+@keyframes moveStripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: calc(var(--stripe-size) * 2 * 1.414) 0;
+  }
 }
 
 /* --- Layout général (Mobile-First) --- */
@@ -86,7 +121,7 @@ p {
   gap: 1rem;
   max-width: 800px;
   margin: 0 auto;
-  scrollbar-width: none; /* Cache la barre de défilement horizontal sur mobile */
+  scrollbar-width: none;
 }
 
 .nav-container::-webkit-scrollbar {
@@ -104,6 +139,24 @@ p {
   color: var(--text-main);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .lang-switch {
   background: transparent;
   color: var(--text-main);
@@ -113,11 +166,6 @@ p {
   font-size: 0.8rem;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.lang-switch:hover {
-  background-color: var(--border-color);
 }
 
 /* --- Section Présentation --- */
@@ -195,7 +243,6 @@ p {
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.2s ease;
 }
 
 .btn-resume-download,
@@ -209,12 +256,6 @@ p {
   background-color: transparent;
   color: var(--text-main);
   border: 1px solid var(--border-color);
-}
-
-.btn-resume-download:hover,
-.btn-resume-view:hover,
-.btn-submit:hover {
-  opacity: 0.85;
 }
 
 /* --- Section Contact --- */
@@ -254,7 +295,7 @@ p {
   padding: 0.75rem;
   border-radius: 6px;
   font-family: inherit;
-  font-size: 1rem; /* 16px minimum pour empêcher le zoom forcé sur mobile */
+  font-size: 1rem;
 }
 
 .form-group input:focus,
@@ -271,7 +312,7 @@ p {
   color: var(--text-muted);
 }
 
-/* --- Media Queries (Écrans plus larges / Tablettes et Desktop) --- */
+/* --- Media Queries --- */
 @media (min-width: 640px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
