@@ -64,6 +64,17 @@ body {
   }
 }
 
+/* Pause et Accessibilité Motion */
+body.bg-paused .animated-bg {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-bg {
+    animation-play-state: paused !important;
+  }
+}
+
 /* --- Layout général (Mobile-First) --- */
 .container {
   width: 100%;
@@ -149,12 +160,40 @@ p {
   background: transparent;
   color: var(--text-main);
   border: 1px solid var(--border-color);
-  padding: 0.35rem 0.5rem;
+  padding: 0.4rem 0.6rem;
   border-radius: 4px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background-color: var(--border-color);
+}
+
+/* Empêche les SVG de bloquer le clic sur le bouton */
+.icon-btn svg,
+.icon-btn svg * {
+  pointer-events: none;
+}
+
+/* Bascule d'affichage des SVG Play / Pause */
+#bg-toggle-btn .icon-pause {
+  display: block;
+}
+#bg-toggle-btn .icon-play {
+  display: none;
+}
+
+body.bg-paused #bg-toggle-btn .icon-pause {
+  display: none;
+}
+body.bg-paused #bg-toggle-btn .icon-play {
+  display: block;
 }
 
 .lang-switch {
@@ -166,16 +205,14 @@ p {
   font-size: 0.8rem;
   cursor: pointer;
   font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-/* --- Section Présentation --- */
-.hero-tagline {
-  color: var(--text-main);
-  font-size: 1.1rem;
-  font-weight: 500;
+.lang-switch:hover {
+  background-color: var(--border-color);
 }
 
-/* --- Section Projets (CSS Grid) --- */
+/* --- Section Projets --- */
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
