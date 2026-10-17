@@ -8,19 +8,25 @@
 }
 
 :root {
-  --bg-color: #0a0a0a;
-  --card-bg: #141414;
-  --border-color: #262626;
-  --text-main: #f5f5f5;
-  --text-muted: #a3a3a3;
-  --accent: #ffffff;
-  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --bg-color: #242933;
+  --card-bg: #2e3440;
+  --border-color: #434c5e;
 
-  /* Fond animé */
-  --stripe-color-1: #47007038;
-  --stripe-color-2: #a723f336;
+  --text-main: #eceff4;
+  --text-muted: #d8dee9;
+
+  --accent: #88c0d0;
+  --accent-hover: #81a1c1;
+  --tag-bg: rgba(143, 188, 187, 0.12);
+  --tag-text: #8fbcbb;
+
+  --font-base:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --stripe-color-1: rgba(46, 52, 64, 0.6);
+  --stripe-color-2: rgba(59, 66, 82, 0.4);
   --stripe-size: 500px;
-  --stripe-speed: 15s;
+  --stripe-speed: 25s;
 }
 
 html {
@@ -35,7 +41,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- Arrière-plan animé en diagonale --- */
+/* --- Arriere-plan anime en diagonale --- */
 .animated-bg {
   position: fixed;
   top: 0;
@@ -51,7 +57,8 @@ body {
     var(--stripe-color-2) var(--stripe-size),
     var(--stripe-color-2) calc(var(--stripe-size) * 2)
   );
-  background-size: calc(var(--stripe-size) * 2 * 1.414) calc(var(--stripe-size) * 2 * 1.414);
+  background-size: calc(var(--stripe-size) * 2 * 1.414)
+    calc(var(--stripe-size) * 2 * 1.414);
   animation: moveStripes var(--stripe-speed) linear infinite;
 }
 
@@ -64,7 +71,7 @@ body {
   }
 }
 
-/* Pause et Accessibilité Motion */
+/* Pause et Accessibilite Motion */
 body.bg-paused .animated-bg {
   animation-play-state: paused !important;
 }
@@ -75,7 +82,7 @@ body.bg-paused .animated-bg {
   }
 }
 
-/* --- Layout général (Mobile-First) --- */
+/* --- Layout general (Mobile-First) --- */
 .container {
   width: 100%;
   max-width: 800px;
@@ -92,17 +99,20 @@ h1 {
   font-size: 2.25rem;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: var(--text-main);
 }
 
 h2 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
+  color: var(--text-main);
 }
 
 h3 {
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
+  color: var(--text-main);
 }
 
 p {
@@ -116,7 +126,7 @@ p {
   top: 0;
   z-index: 100;
   width: 100%;
-  background-color: rgba(10, 10, 10, 0.85);
+  background-color: rgba(11, 15, 25, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-color);
@@ -143,11 +153,15 @@ p {
   color: var(--text-muted);
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.5s ease;
 }
 
 .nav-link:hover {
   color: var(--text-main);
+  transform: scale(1.2, 1.2);
+  border-color: var(--accent);
 }
 
 .nav-actions {
@@ -161,27 +175,28 @@ p {
   color: var(--text-main);
   border: 1px solid var(--border-color);
   padding: 0.4rem 0.6rem;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 36px;
   min-height: 36px;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .icon-btn:hover {
-  background-color: var(--border-color);
+  background-color: var(--card-bg);
+  border-color: var(--accent);
 }
 
-/* Empêche les SVG de bloquer le clic sur le bouton */
 .icon-btn svg,
 .icon-btn svg * {
   pointer-events: none;
 }
 
-/* Bascule d'affichage des SVG Play / Pause */
 #bg-toggle-btn .icon-pause {
   display: block;
 }
@@ -201,15 +216,18 @@ body.bg-paused #bg-toggle-btn .icon-play {
   color: var(--text-main);
   border: 1px solid var(--border-color);
   padding: 0.25rem 0.6rem;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 0.8rem;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.5s ease,
+    border-color 0.2s ease;
 }
 
 .lang-switch:hover {
-  background-color: var(--border-color);
+  background-color: var(--card-bg);
+  border-color: var(--accent);
 }
 
 /* --- Section Projets --- */
@@ -226,6 +244,11 @@ body.bg-paused #bg-toggle-btn .icon-play {
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
+  transition: border-color 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: #334155;
 }
 
 .project-tags {
@@ -238,30 +261,34 @@ body.bg-paused #bg-toggle-btn .icon-play {
 
 .project-tags li {
   font-size: 0.75rem;
-  background-color: var(--bg-color);
-  border: 1px solid var(--border-color);
-  padding: 0.2rem 0.5rem;
+  background-color: var(--tag-bg);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 0.2rem 0.55rem;
   border-radius: 4px;
-  color: var(--text-muted);
+  color: var(--tag-text);
+  font-weight: 500;
 }
 
 .project-footer {
   margin-top: auto;
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .project-footer a {
   font-size: 0.85rem;
   text-decoration: none;
-  color: var(--text-main);
+  color: var(--accent);
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .project-footer a:hover {
+  color: #818cf8;
   text-decoration: underline;
 }
 
-/* --- Section CV (Boutons transparents avec inversion) --- */
+/* --- Section CV (Hierarchie primaire / secondaire) --- */
 .resume-actions {
   display: flex;
   flex-direction: column;
@@ -269,7 +296,6 @@ body.bg-paused #bg-toggle-btn .icon-play {
   margin-top: 1.5rem;
 }
 
-/* Les deux boutons CV sont transparents par défaut */
 .btn-resume-download,
 .btn-resume-view {
   display: inline-block;
@@ -280,22 +306,37 @@ body.bg-paused #bg-toggle-btn .icon-play {
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+/* Bouton principal : plein */
+.btn-resume-download {
+  background-color: var(--accent);
+  color: #ffffff;
+  border: 1px solid var(--accent);
+}
+
+.btn-resume-download:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* Bouton secondaire : contour */
+.btn-resume-view {
   background-color: transparent;
   color: var(--text-main);
   border: 1px solid var(--border-color);
-  /* Ajout des transitions fluides pour la couleur et la taille */
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
 }
 
-/* Au survol : ils deviennent pleins avec le texte en noir */
-.btn-resume-download:hover,
 .btn-resume-view:hover {
-  background-color: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
+  background-color: var(--card-bg);
+  border-color: var(--accent);
 }
 
-/* Au clic : léger effet d'enfoncement physique */
 .btn-resume-download:active,
 .btn-resume-view:active {
   transform: scale(0.98);
@@ -309,8 +350,13 @@ body.bg-paused #bg-toggle-btn .icon-play {
 }
 
 .direct-mail-link {
-  color: var(--text-main);
+  color: var(--accent);
   word-break: break-all;
+  text-decoration: none;
+}
+
+.direct-mail-link:hover {
+  text-decoration: underline;
 }
 
 .contact-form {
@@ -339,12 +385,16 @@ body.bg-paused #bg-toggle-btn .icon-play {
   border-radius: 6px;
   font-family: inherit;
   font-size: 1rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #555;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
 /* --- Bouton d'envoi du formulaire --- */
@@ -356,17 +406,18 @@ body.bg-paused #bg-toggle-btn .icon-play {
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  background-color: var(--accent); /* Reste blanc par défaut */
-  color: #000000;
+  background-color: var(--accent);
+  color: #ffffff;
   border: none;
-  transition: opacity 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
 }
 
 .btn-submit:hover {
-  opacity: 0.85;
+  background-color: var(--accent-hover);
 }
 
-/* Au clic : même effet d'enfoncement que les autres boutons */
 .btn-submit:active {
   transform: scale(0.98);
 }
@@ -395,3 +446,94 @@ body.bg-paused #bg-toggle-btn .icon-play {
     align-items: start;
   }
 }
+
+/* --- Modal Popup --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(11, 15, 25, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-content h3 {
+  font-size: 1.35rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-main);
+  padding-right: 2rem;
+}
+
+.modal-body img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.modal-body p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+}
+
