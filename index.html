@@ -13,10 +13,10 @@
     <!-- Navigation principale -->
     <header class="site-header">
       <nav class="nav-container">
-        <a href="#about" class="nav-link">À propos</a>
-        <a href="#projects" class="nav-link">Projets</a>
-        <a href="#resume" class="nav-link">CV</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#about" class="nav-link" data-i18n="nav_about">À propos</a>
+        <a href="#projects" class="nav-link" data-i18n="nav_projects">Projets</a>
+        <a href="#resume" class="nav-link" data-i18n="nav_resume">CV</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
 
         <button type="button" class="lang-switch">EN</button>
 
@@ -56,10 +56,10 @@
       <section id="about" class="section hero-section">
         <div class="container hero-container">
           <h1>Thomas</h1>
-          <p class="hero-tagline">
+          <p class="hero-tagline" data-i18n="hero_tagline">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-          <p class="hero-bio">
+          <p class="hero-bio" data-i18n="hero_bio">
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
           </p>
@@ -71,32 +71,279 @@
           <h2>Mes Projets</h2>
 
           <div class="projects-grid">
-            <!-- Carte Projet 1 -->
-            <article class="project-card">
-              <header class="project-header">
-                <h3>Lorem Ipsum Project 1</h3>
-              </header>
-              <p class="project-desc">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur.
-              </p>
-              <ul class="project-tags">
-                <li>Tag 1</li>
-                <li>Tag 2</li>
-                <li>Tag 3</li>
-              </ul>
-              <footer class="project-footer">
-                <a
-                  href="#"
-                  class="btn-project-link"
-                  data-modal-desc="Description détaillée et spécifique affichée exclusivement dans le pop-up modal, différente du résumé de la carte."
-                  >Voir le projet</a
-                >
-                <a href="#" class="btn-project-source">Code source</a>
-              </footer>
-            </article>
-          </div>
-        </div>
+
+  <!-- Projet 1 : SAÉ S1.01 (Odomo) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Station Domotique & Météo</h3>
+    </header>
+    <p class="project-desc">
+      Application Java simulant une station connectée avec affichage dynamique de métriques environnementales et régulation du chauffage.
+    </p>
+    <ul class="project-tags">
+      <li>Java</li>
+      <li>JUnit</li>
+      <li>Algorithmique</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Concevoir et implémenter une application Java pour une station domotique (Odomo) gérant l'affichage météo et la planification du chauffage. | RÉSULTATS : Implémentation d'algorithmes de décalage temporel sans duplication mémoire et rendu matriciel 2D en console simulant un écran LCD. | OUTILS & MÉTHODES : Java, POO modulaire, tableaux 1D/2D, logique décrémentée, tests unitaires JUnit. | COMPÉTENCES : Réaliser (concevoir un code propre et documenté) & Optimiser (structuration mémoire efficace)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 2 : SAÉ S1.02 (Biosphère 7) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Biosphère 7 : Jeu de Plateau & IA</h3>
+    </header>
+    <p class="project-desc">
+      Modélisation orientée objet des règles d'un jeu de stratégie au tour par tour et conception d'intelligences artificielles autonomes.
+    </p>
+    <ul class="project-tags">
+      <li>Java</li>
+      <li>IA</li>
+      <li>JUnit</li>
+      <li>Git</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Modéliser un jeu de plateau de 14x14 cases, calculer les actions possibles par niveau de difficulté et concevoir deux IA pour des simulations en tournoi. | RÉSULTATS : Validation successive de tous les niveaux sur serveurs IUT, couverture de tests exhaustive et participation des IA aux phases finales. | OUTILS & MÉTHODES : Java, NetBeans, tests unitaires automatisés (JUnit), versioning Git avec tags de versions. | COMPÉTENCES : Réaliser (logique applicative complexe) & Optimiser (anticipation des cas limites et algorithmes prédictifs)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 3 : SAÉ S1.03 (Retro-PC Dépannage) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Refactorisation Web : Retro-PC</h3>
+    </header>
+    <p class="project-desc">
+      Refonte technique complète d'un site vitrine vers les standards modernes du web, axée sur l'accessibilité et la performance.
+    </p>
+    <ul class="project-tags">
+      <li>HTML5 Sémantique</li>
+      <li>CSS3 Grid/Flexbox</li>
+      <li>Mobile-First</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Refactorisation technique complète et responsive du site vitrine « Retro-PC Dépannage » en appliquant les normes modernes du web. | RÉSULTATS : Code sémantique validé W3C sans erreur, intégration Mobile-First fluide et scores d'audit Lighthouse supérieurs à 90/100 en accessibilité et performance. | OUTILS & MÉTHODES : HTML5 sémantique, CSS3 moderne (variables, Grid macro, Flexbox micro), Google Lighthouse, W3C Validator. | COMPÉTENCES : Réaliser (interfaces web ergonomiques et responsives) & Optimiser (qualité, SEO et accessibilité)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 4 : SAÉ S1.04 (Musicalertes) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Base de Données Musicalertes</h3>
+    </header>
+    <p class="project-desc">
+      Conception relationnelle et implémentation SQL complète du système d'information culturelle d'une plateforme de billetterie musicale.
+    </p>
+    <ul class="project-tags">
+      <li>SQL</li>
+      <li>Win'Design</li>
+      <li>MCD / MLR</li>
+      <li>Modélisation BD</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Refonte 'from scratch' de la base de données de Musicalertes (gestion des artistes, concerts, salles, festivals et alertes clients). | RÉSULTATS : Production d'un schéma entités-associations (MCD) normalisé, d'un modèle logique (MLR) et de scripts SQL DDL/DML commentés et testés. | OUTILS & MÉTHODES : Win'Design, SQL (contraintes d'intégrité, clés primaires/étrangères), algèbre relationnelle. | COMPÉTENCES : Optimiser (structuration rigoureuse des données, intégrité référentielle et cohérence des requêtes)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 5 : SAÉ S1.05 (Poste de travail Linux) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Déploiement d'Environnement Linux</h3>
+    </header>
+    <p class="project-desc">
+      Configuration, sécurisation et automatisation par scripts Bash d'un environnement virtuel Debian dédié au développement fonctionnel.
+    </p>
+    <ul class="project-tags">
+      <li>Linux Debian</li>
+      <li>Bash Scripting</li>
+      <li>VMware</li>
+      <li>Sécurité / Sudo</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Déployer et configurer une machine virtuelle Debian 13 légère (max 8 Go) pour deux utilisateurs distincts (Alice admin, Bob développeur Clojure). | RÉSULTATS : Partitionnement optimisé, automatisation de la suite logicielle par script shell et validation sans erreur via le script test.sh. | OUTILS & MÉTHODES : Debian 13/Xfce, VMware, Bash (.sh), gestion des permissions et groupes sudo, VS Code, Leiningen, Git. | COMPÉTENCES : Administrer (installation, gestion des privilèges utilisateurs et automatisation système)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 6 : SAÉ S1.06 (Audit Baillardran) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Audit Stratégique d'Entreprise</h3>
+    </header>
+    <p class="project-desc">
+      Diagnostic fonctionnel, macro et micro-environnemental de la maison Baillardran face à une crise de réputation et de rentabilité.
+    </p>
+    <ul class="project-tags">
+      <li>PESTEL</li>
+      <li>Forces de Porter</li>
+      <li>Analyse Financière</li>
+      <li>Gestion de Projet</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Réaliser un audit stratégique complet de Baillardran suite aux sanctions judiciaires et identifier les leviers de croissance soutenable. | RÉSULTATS : Analyse détaillée des 6 piliers fonctionnels, cartographie des menaces/opportunités et soutenance orale de restitution devant jury. | OUTILS & MÉTHODES : Méthode PESTEL, modèle des 5 forces de Porter, base financière Diane+, animation et coordination d'équipe. | COMPÉTENCES : Collaborer (s'intégrer dans une dynamique de groupe, structurer un planning et appréhender les enjeux économiques d'une organisation)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 7 : SAÉ S2.01 (BUTopia) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Les Mystères de BUTopia</h3>
+    </header>
+    <p class="project-desc">
+      Application de bureau C# WinForms pour la création, l'entraînement et la simulation d'épreuves de personnages de jeu de rôles.
+    </p>
+    <ul class="project-tags">
+      <li>C# .NET</li>
+      <li>WinForms</li>
+      <li>UML</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Développer un logiciel de gestion de fiches de personnages avec IHM événementielle, passage d'épreuves de dés et système d'expérience. | RÉSULTATS : Interface graphique fluide avec drag-and-drop, gestion précise des règles de modificateurs et suite complète de tests NUnit. | OUTILS & MÉTHODES : C#, .NET WinForms, Visual Studio, modélisation UML (diagrammes de classes et responsabilités), tests unitaires NUnit. | COMPÉTENCES : Réaliser (conception événementielle et ergonomique) & Valider (rigueur de test sur les calculs de probabilités et règles métier)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 8 : SAÉ S2.02 (Coloration de Graphes) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Coloration & Théorie des Graphes</h3>
+    </header>
+    <p class="project-desc">
+      Conception orientée objet et analyse de complexité d'algorithmes de coloration gloutons et récursifs pour graphes planaires.
+    </p>
+    <ul class="project-tags">
+      <li>Java</li>
+      <li>Graphes</li>
+      <li>Algorithmique</li>
+      <li>Complexité</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Implémenter une structure de graphe et concevoir trois algorithmes de coloration (Welsh & Powell, 6-coloration et 5-coloration récursive de graphes planaires). | RÉSULTATS : Traitement robuste de graphes complexes jusqu'à 2 000 sommets, respect strict des invariants topologiques et benchmark d'exécution. | OUTILS & MÉTHODES : Java, NetBeans, théorie des graphes, analyse de complexité temporelle/spatiale, tests unitaires JUnit. | COMPÉTENCES : Optimiser (choix de structures mémoire adéquates et implémentation d'algorithmes récursifs à haute efficacité)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 9 : SAÉ S2.03 (Nextcloud & OnlyOffice) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Infrastructure Réseau & Cloud</h3>
+    </header>
+    <p class="project-desc">
+      Déploiement d'un réseau partitionné avec routage IP statique et hébergement sécurisé de services collaboratifs Nextcloud et OnlyOffice.
+    </p>
+    <ul class="project-tags">
+      <li>Réseaux IP</li>
+      <li>Nextcloud</li>
+      <li>Sécurité TLS</li>
+      <li>Debian</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Déployer deux sous-réseaux isolés reliés par un routeur passerelle, puis installer et interconnecter un serveur Nextcloud sécurisé avec OnlyOffice. | RÉSULTATS : Routage et adressage IP statique durables, chiffrement HTTPS (certificats TLS), 2FA/TOTP activé et synchronisation client lourd validée. | OUTILS & MÉTHODES : Linux Debian, émulateur NEmu, Snap/APT, routage Linux (ip, route), TLS/HTTPS, Wiki GitLab Markdown. | COMPÉTENCES : Administrer (conception d'architectures réseau locales étanches, sécurisation des flux et administration de services cloud)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 10 : SAÉ S2.04 & S2.05 (Risques Climatiques) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Visualisation Risques Climatiques</h3>
+    </header>
+    <p class="project-desc">
+      Plateforme d'analyse et de visualisation de données Open Data sur les aléas naturels en région Nouvelle-Aquitaine.
+    </p>
+    <ul class="project-tags">
+      <li>Python</li>
+      <li>Data Viz</li>
+      <li>Open Data</li>
+      <li>Statistiques</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Transformer des jeux de données complexes Open Data (inondations, incendies, climat) en outils visuels interactifs et décisionnels. | RÉSULTATS : Nettoyage et fusion des données géographiques/météo, génération de cartographies, scatter plots et coordonnées parallèles, pitch technique en anglais. | OUTILS & MÉTHODES : Python, Pandas, Matplotlib/Plotly, régressions statistiques, Pair Programming, Git. | COMPÉTENCES : Gérer (structuration de jeux de données massifs) & Collaborer (développement agile en binôme et communication de synthèse)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+  <!-- Projet 11 : SAÉ S3.05 (Labyrinthe JavaFX) -->
+  <article class="project-card">
+    <header class="project-header">
+      <h3>Labyrinthe JavaFX & Plus Courts Chemins</h3>
+    </header>
+    <p class="project-desc">
+      Jeu d'exploration multi-étages en JavaFX intégrant du polymorphisme pour les entités et la recherche de chemin optimal via JGraphT.
+    </p>
+    <ul class="project-tags">
+      <li>JavaFX</li>
+      <li>JGraphT / Dijkstra</li>
+      <li>Maven</li>
+    </ul>
+    <footer class="project-footer">
+      <a
+        href="#"
+        class="btn-project-link"
+        data-modal-desc="CDC : Développer un jeu de labyrinthe 2D multi-étages avec gestion de sprites, IA ennemies mobiles et calcul en temps réel du plus court chemin. | RÉSULTATS : Rendu graphique fluide, gestion des collisions et concurrence (CopyOnWriteArrayList), dragon traqueur et tracé du chemin de sortie via Dijkstra. | OUTILS & MÉTHODES : Java, JavaFX, NetBeans, Maven, bibliothèque JGraphT, polymorphisme, Git. | COMPÉTENCES : Réaliser (architecture logicielle modulaire avancée) & Optimiser (intégration de librairies tierces et algorithmique de graphes temps réel)."
+        >Voir le projet</a
+      >
+      <a href="#" class="btn-project-source">Code source</a>
+    </footer>
+  </article>
+
+</div>
       </section>
 
       <section id="resume" class="section resume-section">
@@ -210,6 +457,7 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
     <script src="js/ui.js"></script>
   </body>
 </html>
