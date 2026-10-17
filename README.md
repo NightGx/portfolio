@@ -14,8 +14,9 @@
 ## Key Features
 
 - **Dynamic UI/UX:** Pure CSS animated background with a manual pause toggle (saves user preference via `localStorage` and respects `prefers-reduced-motion`).
+- **Project Modal Preview:** Interactive popup modal for detailed project views (`modal.js`).
 - **Asynchronous Form:** Contact form that communicates directly with the Express API without page reloads.
-- **Separation of Concerns:** UI logic (`ui.js`) is strictly separated from business/backend logic (`script.js`).
+- **Separation of Concerns:** Modular JS architecture (`script.js`, `modal.js`, `ui.js`).
 
 ## Architecture
 
@@ -26,8 +27,9 @@
 ├── css
 │   └── style.css
 └── js
+    ├── modal.js
     ├── script.js
     └── ui.js
 
-3 directories, 5 files
+3 directories, 6 files
 ```

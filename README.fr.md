@@ -14,8 +14,9 @@
 ## Fonctionnalités Principales
 
 - **UI/UX Dynamique :** Arrière-plan animé en CSS pur avec bouton de pause (sauvegarde de la préférence utilisateur via `localStorage` et respect du `prefers-reduced-motion`).
+- **Modal de Projets :** Fenêtre modale interactive pour la consultation détaillée des projets (`modal.js`).
 - **Formulaire Asynchrone :** Formulaire de contact qui communique directement avec l'API Express sans rechargement de page.
-- **Séparation des responsabilités :** Logique d'interface (`ui.js`) séparée de la logique métier (`script.js`).
+- **Séparation des responsabilités :** Architecture JS modulaire (`script.js`, `modal.js`, `ui.js`).
 
 ## Architecture
 
@@ -26,8 +27,9 @@
 ├── css
 │   └── style.css
 └── js
+    ├── modal.js
     ├── script.js
     └── ui.js
 
-3 directories, 5 files
+3 directories, 6 files
 ```
