@@ -7,43 +7,133 @@
   padding: 0;
 }
 
-/* --- Palette Botanique (Forest Paper) --- */
+/* ==========================================================================
+   1. MODE CLAIR PAR DÉFAUT (:root) - Palette Botanique (Forest Paper)
+   ========================================================================== */
 :root {
   /* Couleurs fondamentales de la palette */
-  --c-ink: #101d18;          /* Noir végétal très profond */
-  --c-forest: #244b3a;       /* Vert forêt pour titres et boutons pleins */
-  --c-sage: #5f8c6d;         /* Vert sauge pour hover et transitions */
-  --c-sage-light: #86b394;   /* Vert sauge clair */
-  --c-mist: #dfe8d9;         /* Vert brume pâle pour tags et fonds doux */
-  --c-paper: #f7f4ea;        /* Papier crème artisanal pour le fond */
+  --c-ink: #101d18;
+  --c-forest: #244b3a;
+  --c-sage: #5f8c6d;
+  --c-sage-light: #86b394;
+  --c-mist: #dfe8d9;
+  --c-paper: #f7f4ea;
 
-  /* Variables d'interface */
+  /* Surfaces & fonds */
   --bg-color: var(--c-paper);
   --card-bg: #fdfcf7;
+  --card-bg-hover: #ffffff;
   --border-color: #d3dccb;
+  --card-top-border: var(--c-sage);
+  --card-hover-border: var(--c-forest);
+  --card-hover-top-border: var(--c-forest);
+  --card-shadow: 0 2px 10px rgba(36, 75, 58, 0.06);
+  --card-hover-shadow: 0 12px 26px rgba(36, 75, 58, 0.14);
 
+  /* Textes & Titres */
   --text-main: var(--c-ink);
   --text-muted: #3f5a4c;
+  --title-color: var(--c-forest);
 
+  /* Header & Navigation */
+  --header-bg: rgba(16, 29, 24, 0.94);
+  --header-border: rgba(223, 232, 217, 0.15);
+  --nav-link-color: var(--c-mist);
+  --nav-link-hover: #ffffff;
+  --icon-btn-bg-hover: rgba(255, 255, 255, 0.08);
+
+  /* Accents & Liens */
   --accent: var(--c-forest);
   --accent-hover: var(--c-sage);
   --link-hover-color: var(--c-sage);
 
+  /* Boutons */
+  --btn-primary-bg: var(--c-forest);
+  --btn-primary-text: var(--c-paper);
+  --btn-primary-hover: var(--c-sage);
+
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--c-forest);
+  --btn-secondary-border: var(--border-color);
+  --btn-secondary-hover-bg: var(--c-mist);
+
+  /* Tags */
   --tag-bg: var(--c-mist);
   --tag-text: var(--c-forest);
   --tag-border: rgba(36, 75, 58, 0.2);
 
-  --font-base:
-    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Inputs, Modale & Halos */
+  --input-focus-ring: rgba(36, 75, 58, 0.15);
+  --modal-overlay-bg: rgba(16, 29, 24, 0.75);
+  --modal-shadow: 0 20px 25px -5px rgba(16, 29, 24, 0.25), 0 10px 10px -5px rgba(16, 29, 24, 0.15);
 
-  /* Rayures douces et subtiles en arrière-plan */
+  --bg-gradient:
+    radial-gradient(circle at 12% 8%, rgba(95, 140, 109, 0.14), transparent 35%),
+    radial-gradient(circle at 88% 25%, rgba(223, 232, 217, 0.75), transparent 40%),
+    radial-gradient(circle at 70% 85%, rgba(95, 140, 109, 0.1), transparent 40%);
+
+  /* Rayures animées */
   --stripe-color-1: rgba(95, 140, 109, 0.05);
   --stripe-color-2: rgba(223, 232, 217, 0.35);
   --stripe-size: 500px;
   --stripe-speed: 30s;
 
-  /* Largeur fixe des cartes de projets */
   --project-card-width: 420px;
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   2. MODE SOMBRE APPLIQUÉ SUR body.theme-dark (Noirs quasi neutres)
+   ========================================================================== */
+body.theme-dark {
+  /* Variables d'interface : noirs quasi neutres */
+  --bg-color: #0c0d0c;
+  --card-bg: #151716;
+  --card-bg-hover: #1c1f1d;
+  --border-color: #262a28;
+  --card-top-border: var(--c-sage);
+  --card-hover-border: var(--c-forest);
+  --card-hover-top-border: var(--c-forest);
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  --card-hover-shadow: 0 12px 26px rgba(0, 0, 0, 0.7);
+
+  --text-main: var(--c-paper);
+  --text-muted: #a5aba6;
+  --title-color: var(--c-forest);
+
+  --header-bg: rgba(12, 13, 12, 0.92);
+  --header-border: #262a28;
+  --nav-link-color: var(--c-mist);
+  --nav-link-hover: #ffffff;
+  --icon-btn-bg-hover: rgba(255, 255, 255, 0.06);
+
+  --accent: var(--c-sage-light);
+  --accent-hover: var(--c-mist);
+  --link-hover-color: var(--c-paper);
+
+  --btn-primary-bg: var(--c-forest);
+  --btn-primary-text: var(--c-paper);
+  --btn-primary-hover: var(--c-sage);
+
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--c-paper);
+  --btn-secondary-border: var(--border-color);
+  --btn-secondary-hover-bg: #212623;
+
+  --tag-bg: rgba(95, 140, 109, 0.14);
+  --tag-text: var(--c-sage-light);
+  --tag-border: rgba(134, 179, 148, 0.25);
+
+  --input-focus-ring: rgba(134, 179, 148, 0.2);
+  --modal-overlay-bg: rgba(0, 0, 0, 0.82);
+  --modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+
+  /* Pas de dégradé avec halo blanc en mode sombre */
+  --bg-gradient: none;
+
+  /* Rayures quasi invisibles en gris neutre */
+  --stripe-color-1: rgba(255, 255, 255, 0.015);
+  --stripe-color-2: rgba(255, 255, 255, 0.03);
 }
 
 html {
@@ -52,16 +142,13 @@ html {
 
 body {
   background-color: var(--bg-color);
-  /* Fond papier crème avec touches d'aquarelle douces */
-  background-image:
-    radial-gradient(circle at 12% 8%, rgba(95, 140, 109, 0.14), transparent 35%),
-    radial-gradient(circle at 88% 25%, rgba(223, 232, 217, 0.75), transparent 40%),
-    radial-gradient(circle at 70% 85%, rgba(95, 140, 109, 0.1), transparent 40%);
+  background-image: var(--bg-gradient);
   background-attachment: fixed;
   color: var(--text-main);
   font-family: var(--font-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* --- Arrière-plan animé en diagonale --- */
@@ -113,7 +200,7 @@ body.bg-paused .animated-bg {
   padding: 0 1.25rem;
 }
 
-/* Élargit le conteneur de la section projets pour permettre l'alignement jusqu'à 4 cartes */
+/* Élargit le conteneur pour permettre d'aligner jusqu'à 4 cartes */
 .projects-section .container {
   max-width: 1400px;
 }
@@ -127,22 +214,22 @@ h1 {
   font-size: 2.25rem;
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--c-ink);
+  color: var(--title-color);
 }
 
 h2 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
-  color: var(--c-forest);
-  border-left: 3px solid var(--c-sage);
+  color: var(--title-color);
+  border-left: 3px solid var(--accent);
   padding-left: 12px;
 }
 
 h3 {
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
-  color: var(--c-forest);
+  color: var(--title-color);
 }
 
 p {
@@ -150,16 +237,17 @@ p {
   margin-bottom: 1rem;
 }
 
-/* --- Header & Navbar Sticky (Vert le plus sombre en petite zone) --- */
+/* --- Header & Navbar Sticky --- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   width: 100%;
-  background-color: rgba(16, 29, 24, 0.94);
+  background-color: var(--header-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(223, 232, 217, 0.15);
+  border-bottom: 1px solid var(--header-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .nav-container {
@@ -180,7 +268,7 @@ p {
 }
 
 .nav-link {
-  color: var(--c-mist);
+  color: var(--nav-link-color);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -190,7 +278,7 @@ p {
 }
 
 .nav-link:hover {
-  color: #ffffff;
+  color: var(--nav-link-hover);
   transform: scale(1.08);
 }
 
@@ -202,8 +290,8 @@ p {
 
 .icon-btn {
   background: transparent;
-  color: var(--c-mist);
-  border: 1px solid rgba(223, 232, 217, 0.25);
+  color: var(--nav-link-color);
+  border: 1px solid var(--header-border);
   padding: 0.4rem 0.6rem;
   border-radius: 6px;
   cursor: pointer;
@@ -219,9 +307,9 @@ p {
 }
 
 .icon-btn:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--icon-btn-bg-hover);
   border-color: var(--c-sage-light);
-  color: #ffffff;
+  color: var(--nav-link-hover);
 }
 
 .icon-btn svg,
@@ -229,6 +317,7 @@ p {
   pointer-events: none;
 }
 
+/* Gestion de l'affichage Play/Pause */
 #bg-toggle-btn .icon-pause {
   display: block;
 }
@@ -243,10 +332,25 @@ body.bg-paused #bg-toggle-btn .icon-play {
   display: block;
 }
 
+/* Gestion de l'affichage Soleil/Lune */
+#theme-toggle-btn .icon-moon {
+  display: block;
+}
+#theme-toggle-btn .icon-sun {
+  display: none;
+}
+
+body.theme-dark #theme-toggle-btn .icon-moon {
+  display: none;
+}
+body.theme-dark #theme-toggle-btn .icon-sun {
+  display: block;
+}
+
 .lang-switch {
   background: transparent;
-  color: var(--c-mist);
-  border: 1px solid rgba(223, 232, 217, 0.25);
+  color: var(--nav-link-color);
+  border: 1px solid var(--header-border);
   padding: 0.25rem 0.6rem;
   border-radius: 6px;
   font-size: 0.8rem;
@@ -259,9 +363,9 @@ body.bg-paused #bg-toggle-btn .icon-play {
 }
 
 .lang-switch:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--icon-btn-bg-hover);
   border-color: var(--c-sage-light);
-  color: #ffffff;
+  color: var(--nav-link-hover);
 }
 
 /* --- Section Projets --- */
@@ -278,23 +382,25 @@ body.bg-paused #bg-toggle-btn .icon-play {
   max-width: 100%;
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-top: 3px solid var(--c-sage);
+  border-top: 3px solid var(--card-top-border);
   border-radius: 8px;
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 10px rgba(36, 75, 58, 0.06);
+  box-shadow: var(--card-shadow);
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
-  border-color: var(--c-forest);
-  border-top-color: var(--c-forest);
-  box-shadow: 0 12px 26px rgba(36, 75, 58, 0.14);
+  background-color: var(--card-bg-hover);
+  border-color: var(--card-hover-border);
+  border-top-color: var(--card-hover-top-border);
+  box-shadow: var(--card-hover-shadow);
 }
 
 .project-tags {
@@ -322,7 +428,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
   gap: 1.25rem;
 }
 
-/* Liens des projets avec transition fluide et bouton distinctif */
+/* Liens des cartes */
 .project-footer a {
   cursor: pointer;
   display: inline-block;
@@ -338,17 +444,16 @@ body.bg-paused #bg-toggle-btn .icon-play {
 
 /* Bouton primaire "Voir le projet" */
 .project-footer a.btn-project-link {
-  background-color: var(--c-forest);
-  color: var(--c-paper);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   padding: 6px 14px;
   border-radius: 6px;
-  border: 1px solid var(--c-forest);
+  border: 1px solid transparent;
 }
 
 .project-footer a.btn-project-link:hover {
-  background-color: var(--c-sage);
-  border-color: var(--c-sage);
-  color: var(--c-paper);
+  background-color: var(--btn-primary-hover);
+  color: var(--btn-primary-text);
 }
 
 /* Lien secondaire "Code source" avec trait animé */
@@ -406,29 +511,28 @@ body.bg-paused #bg-toggle-btn .icon-play {
     transform 0.1s ease;
 }
 
-/* Bouton principal : plein vert forêt */
+/* Bouton principal */
 .btn-resume-download {
-  background-color: var(--c-forest);
-  color: var(--c-paper);
-  border: 1px solid var(--c-forest);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: 1px solid transparent;
 }
 
 .btn-resume-download:hover {
-  background-color: var(--c-sage);
-  border-color: var(--c-sage);
+  background-color: var(--btn-primary-hover);
 }
 
-/* Bouton secondaire : contour */
+/* Bouton secondaire */
 .btn-resume-view {
-  background-color: transparent;
-  color: var(--c-forest);
-  border: 1px solid var(--border-color);
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 1px solid var(--btn-secondary-border);
 }
 
 .btn-resume-view:hover {
-  background-color: var(--c-mist);
+  background-color: var(--btn-secondary-hover-bg);
   border-color: var(--c-forest);
-  color: var(--c-forest);
+  color: var(--btn-secondary-text);
 }
 
 .btn-resume-download:active,
@@ -485,14 +589,15 @@ body.bg-paused #bg-toggle-btn .icon-play {
   font-size: 1rem;
   transition:
     border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--c-forest);
-  box-shadow: 0 0 0 2px rgba(36, 75, 58, 0.15);
+  box-shadow: 0 0 0 2px var(--input-focus-ring);
 }
 
 /* --- Bouton d'envoi du formulaire --- */
@@ -504,8 +609,8 @@ body.bg-paused #bg-toggle-btn .icon-play {
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  background-color: var(--c-forest);
-  color: var(--c-paper);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border: none;
   transition:
     background-color 0.2s ease,
@@ -513,7 +618,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
 }
 
 .btn-submit:hover {
-  background-color: var(--c-sage);
+  background-color: var(--btn-primary-hover);
 }
 
 .btn-submit:active {
@@ -548,7 +653,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(16, 29, 24, 0.75);
+  background-color: var(--modal-overlay-bg);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: flex;
@@ -576,9 +681,9 @@ body.bg-paused #bg-toggle-btn .icon-play {
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 20px 25px -5px rgba(16, 29, 24, 0.25), 0 10px 10px -5px rgba(16, 29, 24, 0.15);
+  box-shadow: var(--modal-shadow);
   transform: translateY(20px);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .modal-overlay.active .modal-content {
@@ -588,7 +693,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
 .modal-content h3 {
   font-size: 1.35rem;
   margin-bottom: 1.25rem;
-  color: var(--c-forest);
+  color: var(--title-color);
   padding-right: 2rem;
 }
 
@@ -614,7 +719,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
   right: 1.25rem;
   background: transparent;
   border: 1px solid var(--border-color);
-  color: var(--c-ink);
+  color: var(--text-main);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -630,7 +735,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
 }
 
 .modal-close:hover {
-  background-color: var(--c-mist);
+  background-color: var(--btn-secondary-hover-bg);
   border-color: var(--c-forest);
-  color: var(--c-forest);
+  color: var(--text-main);
 }
