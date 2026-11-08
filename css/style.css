@@ -1,4 +1,4 @@
-/* --- Reset & Variables --- */
+/* --- Reset & Box Sizing --- */
 *,
 *::before,
 *::after {
@@ -7,26 +7,40 @@
   padding: 0;
 }
 
+/* --- Palette Botanique (Forest Paper) --- */
 :root {
-  --bg-color: #242933;
-  --card-bg: #2e3440;
-  --border-color: #434c5e;
+  /* Couleurs fondamentales de la palette */
+  --c-ink: #101d18;          /* Noir végétal très profond */
+  --c-forest: #244b3a;       /* Vert forêt pour titres et boutons pleins */
+  --c-sage: #5f8c6d;         /* Vert sauge pour hover et transitions */
+  --c-sage-light: #86b394;   /* Vert sauge clair */
+  --c-mist: #dfe8d9;         /* Vert brume pâle pour tags et fonds doux */
+  --c-paper: #f7f4ea;        /* Papier crème artisanal pour le fond */
 
-  --text-main: #eceff4;
-  --text-muted: #d8dee9;
+  /* Variables d'interface */
+  --bg-color: var(--c-paper);
+  --card-bg: #fdfcf7;
+  --border-color: #d3dccb;
 
-  --accent: #88c0d0;
-  --accent-hover: #81a1c1;
-  --tag-bg: rgba(143, 188, 187, 0.12);
-  --tag-text: #8fbcbb;
+  --text-main: var(--c-ink);
+  --text-muted: #3f5a4c;
+
+  --accent: var(--c-forest);
+  --accent-hover: var(--c-sage);
+  --link-hover-color: var(--c-sage);
+
+  --tag-bg: var(--c-mist);
+  --tag-text: var(--c-forest);
+  --tag-border: rgba(36, 75, 58, 0.2);
 
   --font-base:
     system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  --stripe-color-1: rgba(46, 52, 64, 0.6);
-  --stripe-color-2: rgba(59, 66, 82, 0.4);
+  /* Rayures douces et subtiles en arrière-plan */
+  --stripe-color-1: rgba(95, 140, 109, 0.05);
+  --stripe-color-2: rgba(223, 232, 217, 0.35);
   --stripe-size: 500px;
-  --stripe-speed: 25s;
+  --stripe-speed: 30s;
 
   /* Largeur fixe des cartes de projets */
   --project-card-width: 420px;
@@ -38,13 +52,19 @@ html {
 
 body {
   background-color: var(--bg-color);
+  /* Fond papier crème avec touches d'aquarelle douces */
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(95, 140, 109, 0.14), transparent 35%),
+    radial-gradient(circle at 88% 25%, rgba(223, 232, 217, 0.75), transparent 40%),
+    radial-gradient(circle at 70% 85%, rgba(95, 140, 109, 0.1), transparent 40%);
+  background-attachment: fixed;
   color: var(--text-main);
   font-family: var(--font-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- Arriere-plan anime en diagonale --- */
+/* --- Arrière-plan animé en diagonale --- */
 .animated-bg {
   position: fixed;
   top: 0;
@@ -74,7 +94,7 @@ body {
   }
 }
 
-/* Pause et Accessibilite Motion */
+/* Pause et Accessibilité Motion */
 body.bg-paused .animated-bg {
   animation-play-state: paused !important;
 }
@@ -85,7 +105,7 @@ body.bg-paused .animated-bg {
   }
 }
 
-/* --- Layout general (Mobile-First) --- */
+/* --- Layout général (Mobile-First) --- */
 .container {
   width: 100%;
   max-width: 800px;
@@ -93,7 +113,7 @@ body.bg-paused .animated-bg {
   padding: 0 1.25rem;
 }
 
-/* Elargit le conteneur pour permettre d'aligner jusqu'a 4 cartes */
+/* Élargit le conteneur de la section projets pour permettre l'alignement jusqu'à 4 cartes */
 .projects-section .container {
   max-width: 1400px;
 }
@@ -107,20 +127,22 @@ h1 {
   font-size: 2.25rem;
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--text-main);
+  color: var(--c-ink);
 }
 
 h2 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
-  color: var(--text-main);
+  color: var(--c-forest);
+  border-left: 3px solid var(--c-sage);
+  padding-left: 12px;
 }
 
 h3 {
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
-  color: var(--text-main);
+  color: var(--c-forest);
 }
 
 p {
@@ -128,16 +150,16 @@ p {
   margin-bottom: 1rem;
 }
 
-/* --- Header & Navbar Sticky --- */
+/* --- Header & Navbar Sticky (Vert le plus sombre en petite zone) --- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   width: 100%;
-  background-color: rgba(11, 15, 25, 0.85);
+  background-color: rgba(16, 29, 24, 0.94);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(223, 232, 217, 0.15);
 }
 
 .nav-container {
@@ -158,18 +180,18 @@ p {
 }
 
 .nav-link {
-  color: var(--text-muted);
+  color: var(--c-mist);
   text-decoration: none;
   font-size: 0.9rem;
+  font-weight: 500;
   transition:
     color 0.2s ease,
-    transform 0.5s ease;
+    transform 0.3s ease;
 }
 
 .nav-link:hover {
-  color: var(--text-main);
-  transform: scale(1.2, 1.2);
-  border-color: var(--accent);
+  color: #ffffff;
+  transform: scale(1.08);
 }
 
 .nav-actions {
@@ -180,8 +202,8 @@ p {
 
 .icon-btn {
   background: transparent;
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
+  color: var(--c-mist);
+  border: 1px solid rgba(223, 232, 217, 0.25);
   padding: 0.4rem 0.6rem;
   border-radius: 6px;
   cursor: pointer;
@@ -192,12 +214,14 @@ p {
   min-height: 36px;
   transition:
     background-color 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .icon-btn:hover {
-  background-color: var(--card-bg);
-  border-color: var(--accent);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--c-sage-light);
+  color: #ffffff;
 }
 
 .icon-btn svg,
@@ -221,25 +245,26 @@ body.bg-paused #bg-toggle-btn .icon-play {
 
 .lang-switch {
   background: transparent;
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
+  color: var(--c-mist);
+  border: 1px solid rgba(223, 232, 217, 0.25);
   padding: 0.25rem 0.6rem;
   border-radius: 6px;
   font-size: 0.8rem;
   cursor: pointer;
   font-weight: 600;
   transition:
-    background-color 0.5s ease,
-    border-color 0.2s ease;
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .lang-switch:hover {
-  background-color: var(--card-bg);
-  border-color: var(--accent);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--c-sage-light);
+  color: #ffffff;
 }
 
 /* --- Section Projets --- */
-/* Disposées avec flex-wrap : les cartes gardent strictement leur largeur fixe et descendent d'une ligne */
 .projects-grid {
   display: flex;
   flex-wrap: wrap;
@@ -253,15 +278,23 @@ body.bg-paused #bg-toggle-btn .icon-play {
   max-width: 100%;
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
+  border-top: 3px solid var(--c-sage);
   border-radius: 8px;
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.2s ease;
+  box-shadow: 0 2px 10px rgba(36, 75, 58, 0.06);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .project-card:hover {
-  border-color: #334155;
+  transform: translateY(-4px);
+  border-color: var(--c-forest);
+  border-top-color: var(--c-forest);
+  box-shadow: 0 12px 26px rgba(36, 75, 58, 0.14);
 }
 
 .project-tags {
@@ -275,7 +308,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
 .project-tags li {
   font-size: 0.75rem;
   background-color: var(--tag-bg);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  border: 1px solid var(--tag-border);
   padding: 0.2rem 0.55rem;
   border-radius: 4px;
   color: var(--tag-text);
@@ -285,27 +318,47 @@ body.bg-paused #bg-toggle-btn .icon-play {
 .project-footer {
   margin-top: auto;
   display: flex;
+  align-items: center;
   gap: 1.25rem;
 }
 
+/* Liens des projets avec transition fluide et bouton distinctif */
 .project-footer a {
   cursor: pointer;
   display: inline-block;
   font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--accent);
+  font-weight: 600;
+  color: var(--c-forest);
   text-decoration: none;
   background-color: transparent;
-  transition: color 0.25s ease;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
 }
 
+/* Bouton primaire "Voir le projet" */
+.project-footer a.btn-project-link {
+  background-color: var(--c-forest);
+  color: var(--c-paper);
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--c-forest);
+}
+
+.project-footer a.btn-project-link:hover {
+  background-color: var(--c-sage);
+  border-color: var(--c-sage);
+  color: var(--c-paper);
+}
+
+/* Lien secondaire "Code source" avec trait animé */
 @media (prefers-reduced-motion: no-preference) {
-  .project-footer a {
+  .project-footer a.btn-project-source {
     position: relative;
     --underline-scale: 0;
   }
 
-  .project-footer a::after {
+  .project-footer a.btn-project-source::after {
     content: "";
     position: absolute;
     left: 0;
@@ -318,17 +371,17 @@ body.bg-paused #bg-toggle-btn .icon-play {
     transition: transform 0.25s ease;
   }
 
-  .project-footer a:hover {
-    color: #818cf8;
+  .project-footer a.btn-project-source:hover {
+    color: var(--link-hover-color);
     --underline-scale: 1;
   }
 
-  .project-footer a:hover::after {
+  .project-footer a.btn-project-source:hover::after {
     transform-origin: left center;
   }
 }
 
-/* --- Section CV (Hierarchie primaire / secondaire) --- */
+/* --- Section CV (Boutons primaire & secondaire) --- */
 .resume-actions {
   display: flex;
   flex-direction: column;
@@ -353,28 +406,29 @@ body.bg-paused #bg-toggle-btn .icon-play {
     transform 0.1s ease;
 }
 
-/* Bouton principal : plein */
+/* Bouton principal : plein vert forêt */
 .btn-resume-download {
-  background-color: var(--accent);
-  color: #ffffff;
-  border: 1px solid var(--accent);
+  background-color: var(--c-forest);
+  color: var(--c-paper);
+  border: 1px solid var(--c-forest);
 }
 
 .btn-resume-download:hover {
-  background-color: var(--accent-hover);
-  border-color: var(--accent-hover);
+  background-color: var(--c-sage);
+  border-color: var(--c-sage);
 }
 
 /* Bouton secondaire : contour */
 .btn-resume-view {
   background-color: transparent;
-  color: var(--text-main);
+  color: var(--c-forest);
   border: 1px solid var(--border-color);
 }
 
 .btn-resume-view:hover {
-  background-color: var(--card-bg);
-  border-color: var(--accent);
+  background-color: var(--c-mist);
+  border-color: var(--c-forest);
+  color: var(--c-forest);
 }
 
 .btn-resume-download:active,
@@ -390,12 +444,15 @@ body.bg-paused #bg-toggle-btn .icon-play {
 }
 
 .direct-mail-link {
-  color: var(--accent);
+  color: var(--c-forest);
+  font-weight: 600;
   word-break: break-all;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .direct-mail-link:hover {
+  color: var(--link-hover-color);
   text-decoration: underline;
 }
 
@@ -413,6 +470,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
 
 .form-group label {
   font-size: 0.85rem;
+  font-weight: 500;
   color: var(--text-muted);
 }
 
@@ -433,8 +491,8 @@ body.bg-paused #bg-toggle-btn .icon-play {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent);
+  border-color: var(--c-forest);
+  box-shadow: 0 0 0 2px rgba(36, 75, 58, 0.15);
 }
 
 /* --- Bouton d'envoi du formulaire --- */
@@ -446,8 +504,8 @@ body.bg-paused #bg-toggle-btn .icon-play {
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  background-color: var(--accent);
-  color: #ffffff;
+  background-color: var(--c-forest);
+  color: var(--c-paper);
   border: none;
   transition:
     background-color 0.2s ease,
@@ -455,7 +513,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
 }
 
 .btn-submit:hover {
-  background-color: var(--accent-hover);
+  background-color: var(--c-sage);
 }
 
 .btn-submit:active {
@@ -490,7 +548,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(11, 15, 25, 0.8);
+  background-color: rgba(16, 29, 24, 0.75);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: flex;
@@ -518,7 +576,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 25px -5px rgba(16, 29, 24, 0.25), 0 10px 10px -5px rgba(16, 29, 24, 0.15);
   transform: translateY(20px);
   transition: transform 0.3s ease;
 }
@@ -530,7 +588,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
 .modal-content h3 {
   font-size: 1.35rem;
   margin-bottom: 1.25rem;
-  color: var(--text-main);
+  color: var(--c-forest);
   padding-right: 2rem;
 }
 
@@ -556,7 +614,7 @@ body.bg-paused #bg-toggle-btn .icon-play {
   right: 1.25rem;
   background: transparent;
   border: 1px solid var(--border-color);
-  color: var(--text-main);
+  color: var(--c-ink);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -565,10 +623,14 @@ body.bg-paused #bg-toggle-btn .icon-play {
   justify-content: center;
   font-size: 1.25rem;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .modal-close:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: var(--accent);
+  background-color: var(--c-mist);
+  border-color: var(--c-forest);
+  color: var(--c-forest);
 }
