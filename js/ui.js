@@ -1,3 +1,21 @@
+// --- UTILITAIRES COOKIES NATIFS ---
+const COOKIE_MAX_AGE = 31536000; // 1 an en secondes
+
+function setCookie(name, value, maxAge = COOKIE_MAX_AGE) {
+  document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; path=/; max-age=${maxAge}; SameSite=Lax`;
+}
+
+function getCookie(name) {
+  const target = `${encodeURIComponent(name)}=`;
+  const cookies = document.cookie ? document.cookie.split('; ') : [];
+  for (const entry of cookies) {
+    if (entry.startsWith(target)) {
+      return decodeURIComponent(entry.slice(target.length));
+    }
+  }
+  return null;
+}
+
 // --- GESTION DU FOND ANIMÉ ---
 const savedBgState = localStorage.getItem('bg-paused');
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
