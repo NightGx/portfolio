@@ -26,7 +26,7 @@ if (savedBgState === 'true' || (savedBgState === null && prefersReduced)) {
 }
 
 // --- GESTION DU THÈME (Clair par défaut / Sombre via theme-dark) ---
-const savedTheme = localStorage.getItem('theme');
+const savedTheme = getCookie('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 // Appliquer le thème sombre si sauvegardé ou si préférence système
