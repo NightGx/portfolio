@@ -29,10 +29,17 @@ if (savedBgState === 'true' || (savedBgState === null && prefersReduced)) {
 const savedTheme = getCookie('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+function syncThemeToggleAccessibility(isDark) {
+  const themeBtn = document.getElementById('theme-toggle-btn');
+  if (!themeBtn) return;
+  themeBtn.setAttribute('aria-pressed', String(isDark));
+}
+
 // Appliquer le thème sombre si sauvegardé ou si préférence système
 if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
   document.body.classList.add('theme-dark');
 }
+syncThemeToggleAccessibility(document.body.classList.contains('theme-dark'));
 
 // Écouteur global pour les boutons
 document.addEventListener('click', (event) => {
@@ -48,6 +55,7 @@ document.addEventListener('click', (event) => {
   const themeBtn = event.target.closest('#theme-toggle-btn');
   if (themeBtn) {
     const isDark = document.body.classList.toggle('theme-dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    setCookie('theme', isDark ? 'dark' : 'light');
+    syncThemeToggleAccessibility(isDark);
   }
 });
