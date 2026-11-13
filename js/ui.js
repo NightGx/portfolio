@@ -17,12 +17,15 @@ function getCookie(name) {
 }
 
 // --- GESTION DU FOND ANIMÉ ---
-const savedBgState = localStorage.getItem('bg-paused');
+const savedBgState = getCookie('bg-paused');
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const initialBgPaused = savedBgState === 'true' || (savedBgState === null && prefersReduced);
 
 // Application de l'état initial
-if (savedBgState === 'true' || (savedBgState === null && prefersReduced)) {
+if (initialBgPaused) {
   document.body.classList.add('bg-paused');
+} else if (savedBgState === 'false') {
+  document.body.classList.add('bg-playing');
 }
 
 // --- GESTION DU THÈME (Clair par défaut / Sombre via theme-dark) ---
