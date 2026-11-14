@@ -21,12 +21,23 @@ const savedBgState = getCookie('bg-paused');
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const initialBgPaused = savedBgState === 'true' || (savedBgState === null && prefersReduced);
 
+function syncBgToggleAccessibility(isPaused) {
+  const bgBtn = document.getElementById('bg-toggle-btn');
+  if (!bgBtn) return;
+  bgBtn.setAttribute('aria-pressed', String(isPaused));
+  bgBtn.setAttribute(
+    'aria-label',
+    isPaused ? "Reprendre l'animation d'arrière-plan" : "Mettre en pause l'animation d'arrière-plan"
+  );
+}
+
 // Application de l'état initial
 if (initialBgPaused) {
   document.body.classList.add('bg-paused');
 } else if (savedBgState === 'false') {
   document.body.classList.add('bg-playing');
 }
+syncBgToggleAccessibility(document.body.classList.contains('bg-paused'));
 
 // --- GESTION DU THÈME (Clair par défaut / Sombre via theme-dark) ---
 const savedTheme = getCookie('theme');
@@ -50,7 +61,9 @@ document.addEventListener('click', (event) => {
   const bgBtn = event.target.closest('#bg-toggle-btn');
   if (bgBtn) {
     const isPaused = document.body.classList.toggle('bg-paused');
-    localStorage.setItem('bg-paused', isPaused);
+    document.body.classList.toggle('bg-playing', !isPaused);
+    setCookie('bg-paused', String(isPaused));
+    syncBgToggleAccessibility(isPaused);
     return;
   }
 
