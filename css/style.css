@@ -368,16 +368,32 @@ body.theme-dark #theme-toggle-btn .icon-sun {
   font-size: 0.8rem;
   cursor: pointer;
   font-weight: 600;
+  min-width: 40px;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.04em;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    transform 0.1s ease;
 }
 
 .lang-switch:hover {
   background-color: var(--icon-btn-bg-hover);
   border-color: var(--c-sage-light);
   color: var(--nav-link-hover);
+}
+
+.lang-switch:focus-visible {
+  outline: 2px solid var(--c-sage-light);
+  outline-offset: 2px;
+}
+
+.lang-switch:active {
+  transform: scale(0.96);
 }
 
 /* --- Section Projets & Catégories --- */
