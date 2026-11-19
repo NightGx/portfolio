@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thomas — Portfolio</title>
+  <title data-i18n="page_title">Thomas — Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -21,11 +21,12 @@
       <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
 
       <div class="nav-actions">
-        <button type="button" id="lang-toggle-btn" class="lang-switch" aria-label="Switch to English"
-          title="Switch to English">EN</button>
+        <button type="button" id="lang-toggle-btn" class="lang-switch" aria-label="Passer en anglais"
+          data-i18n-aria-label="aria_lang_to_en" title="Passer en anglais">EN</button>
      <!-- Bouton Play / Pause pour le fond animé -->
      <button type="button" id="bg-toggle-btn" class="icon-btn"
-       aria-label="Mettre en pause l'animation d'arrière-plan" aria-pressed="false">
+       aria-label="Mettre en pause l'animation d'arrière-plan" data-i18n-aria-label="aria_bg_pause"
+       aria-pressed="false">
        <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
          <rect x="6" y="4" width="4" height="16" rx="1"></rect>
          <rect x="14" y="4" width="4" height="16" rx="1"></rect>
@@ -36,7 +37,7 @@
      </button>
 
      <button type="button" id="theme-toggle-btn" class="icon-btn" aria-label="Changer de thème (clair / sombre)"
-       aria-pressed="false">
+       data-i18n-aria-label="aria_theme_to_dark" aria-pressed="false">
        <!-- Icône Soleil (pour le passage au mode clair ou affichée en mode sombre) -->
        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
          <path
