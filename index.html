@@ -72,19 +72,19 @@
 
     <section id="projects" class="section projects-section">
       <div class="container">
-        <h2>Mes Projets</h2>
+        <h2 data-i18n="projects_title">Mes Projets</h2>
 
         <!-- Sous-catégorie 1 : Projets Personnels -->
         <div class="project-category">
-          <h3>Projets Personnels</h3>
+          <h3 data-i18n="projects_personal_title">Projets Personnels</h3>
           <div class="projects-grid">
 
             <!-- Projet Personnel 1 : Homelab Infrastructure -->
             <article class="project-card">
               <header class="project-header">
-                <h3>Homelab Infrastructure & IaC</h3>
+                <h3 data-i18n="p_homelab_title">Homelab Infrastructure & IaC</h3>
               </header>
-              <p class="project-desc">
+              <p class="project-desc" data-i18n="p_homelab_desc">
                 Infrastructure et services auto-hébergés sur serveur Debian dédié avec orchestration Docker, reverse proxy Nginx, tunnels Cloudflare et VPN Tailscale.
               </p>
               <ul class="project-tags">
@@ -95,20 +95,21 @@
                 <li>IaC</li>
               </ul>
               <footer class="project-footer">
-                <a href="#project-modal" class="btn-project-link" data-modal-img="assets/homelab.png"
+                <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                  data-i18n-modal-desc="p_homelab_modal" data-modal-img="assets/homelab.png"
                   data-modal-desc="Infrastructure serveur personnelle disponible 24h/24 sur une tour dédiée sous Debian 13 (AMD Ryzen 5 5500, 16 Go de RAM, SSD 128 Go et HDD 2 To monté sur /srv/data), conçue pour héberger mes propres outils et services de jeu sans dépendre de plateformes tierces. || L'ensemble repose sur une séparation stricte entre les services conteneurisés (Docker Compose) et les unités natives systemd : gestionnaire de fichiers maison filedrive avec indexation SQLite FTS5, instance LLM locale Ollama, automatisation n8n, serveur vocal TeamSpeak et trois serveurs Minecraft moddés (PaperMC, SkyFactory 4, StoneBlock 4). Les flux publics passent par Nginx, Cloudflare Tunnels et Playit.gg sans exposition de ports bruts, tandis que toute l'administration est isolée sur un réseau maillé privé Tailscale.">Voir
                   le projet</a>
                 <a href="https://github.com/TLableigne/homelab-infrastructure" target="_blank" rel="noopener noreferrer"
-                  class="btn-project-source">Code source</a>
+                  class="btn-project-source" data-i18n="btn_source_code">Code source</a>
               </footer>
             </article>
 
             <!-- Projet Personnel 2 : Arch Linux Dotfiles -->
             <article class="project-card">
               <header class="project-header">
-                <h3>Arch Linux Dotfiles & Hyprland</h3>
+                <h3 data-i18n="p_arch_title">Arch Linux Dotfiles & Hyprland</h3>
               </header>
-              <p class="project-desc">
+              <p class="project-desc" data-i18n="p_arch_desc">
                 Configuration système modulaire sous Arch Linux centrée sur un environnement Wayland (Hyprland), Fish shell et automatisation multi-profils.
               </p>
               <ul class="project-tags">
@@ -119,20 +120,21 @@
                 <li>Git</li>
               </ul>
               <footer class="project-footer">
-                <a href="#project-modal" class="btn-project-link" data-modal-img="assets/arch-config.png"
+                <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                  data-i18n-modal-desc="p_arch_modal" data-modal-img="assets/arch-config.png"
                   data-modal-desc="Configuration système modulaire sous Arch Linux pensée pour offrir un environnement de développement rapide, léger et entièrement pilotable au clavier sur une configuration double écran à taux de rafraîchissement mixtes (240 Hz et 165 Hz). || L'interface s'appuie sur le compositeur Wayland Hyprland, une barre système réactive développée sous Quickshell, le terminal Kitty accéléré GPU et un shell Fish personnalisé avec Starship. Le dépôt intègre également un thème GRUB 1440p sur mesure ainsi qu'une gouvernance Git dynamique basée sur des directives conditionnelles includeIf et des alias SSH pour isoler automatiquement mes identités personnelle, universitaire et gaming.">Voir
                   le projet</a>
                 <a href="https://github.com/TLableigne/arch-dotfiles" target="_blank" rel="noopener noreferrer"
-                  class="btn-project-source">Code source</a>
+                  class="btn-project-source" data-i18n="btn_source_code">Code source</a>
               </footer>
             </article>
 
             <!-- Projet Personnel 3 : Portfolio -->
             <article class="project-card">
               <header class="project-header">
-                <h3>Portfolio & API Relay Node.js</h3>
+                <h3 data-i18n="p_portfolio_title">Portfolio & API Relay Node.js</h3>
               </header>
-              <p class="project-desc">
+              <p class="project-desc" data-i18n="p_portfolio_desc">
                 Site vitrine personnel moderne et éco-conçu en HTML/CSS/JS, couplé à un micro-relais Node.js/Express pour la gestion sécurisée du formulaire de contact.
               </p>
               <ul class="project-tags">
@@ -143,20 +145,21 @@
                 <li>Nginx</li>
               </ul>
               <footer class="project-footer">
-                <a href="#project-modal" class="btn-project-link" data-modal-img="assets/portfolio-backend.png"
+                <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                  data-i18n-modal-desc="p_portfolio_modal" data-modal-img="assets/portfolio-backend.png"
                   data-modal-desc="Portfolio technique léger et responsive conçu en HTML5, CSS3 et JavaScript vanilla, pensé pour présenter mes réalisations tout en offrant un canal de contact direct sans exposer de clés ou d'URL sensibles côté navigateur. || Le site statique est servi par Nginx derrière un micro-relais backend en Node.js et Express v5 isolé dans Docker Compose. Le formulaire communique en asynchrone via fetch pour contourner les blocages de soumission native, protégé par validation stricte des entrées, restriction CORS et limitation de débit anti-spam (5 requêtes par 15 minutes), transmettant instantanément chaque message sous forme d'embed sur Discord.">Voir
                   le projet</a>
                 <a href="https://github.com/TLableigne/portfolio" target="_blank" rel="noopener noreferrer"
-                  class="btn-project-source">Code source</a>
+                  class="btn-project-source" data-i18n="btn_source_code">Code source</a>
               </footer>
             </article>
 
             <!-- Projet Personnel 4 : Local AI Email Triage -->
             <article class="project-card">
               <header class="project-header">
-                <h3>Local AI Email Triage & Security Automation (n8n + Ollama)</h3>
+                <h3 data-i18n="p_mail_triage_title">Local AI Email Triage & Security Automation (n8n + Ollama)</h3>
               </header>
-              <p class="project-desc">
+              <p class="project-desc" data-i18n="p_mail_triage_desc">
                 Pipeline d'automatisation 100 % local combinant un serveur Debian 24/7 (qwen2.5:3b) pour le tri IMAP continu et le réveil à la demande par Wake-on-LAN d'une station Arch Linux GPU (qwen3:14b) pour l'analyse de menaces géographiques et les alertes Discord.
               </p>
               <ul class="project-tags">
@@ -168,20 +171,21 @@
                 <li>Discord Webhooks</li>
               </ul>
               <footer class="project-footer">
-                <a href="#project-modal" class="btn-project-link" data-modal-img="assets/n8n-local-mail-triage.png"
+                <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                  data-i18n-modal-desc="p_mail_triage_modal" data-modal-img="assets/n8n-local-mail-triage.png"
                   data-modal-desc="Architecture hybride à deux niveaux entièrement auto-hébergée, sans aucune dépendance cloud : un serveur Debian 13 disponible 24h/24 (Ryzen 5 5500) assure l'écoute IMAP continue, le pré-tri JSON strict via qwen2.5:3b avec garde-fou de confiance (< 80 %) en JavaScript et le routage TLS vers les dossiers cibles. || En cas d'e-mail urgent ou ambigu, le script Bash arch-power.sh réveille à la demande par Wake-on-LAN une station Arch Linux (RX 6750 XT 12 Go VRAM) exécutant qwen3:14b (num_ctx: 4096, think: false) pour l'analyse de menaces géographiques et l'envoi d'embeds Discord (#E74C3C), avec détection du dual-boot Windows 11, priorité systemd anti-freeze Wayland/Hyprland et extinction conditionnelle à moindre privilège (safe-wol-shutdown).">Voir
                   le projet</a>
                 <a href="https://github.com/TLableigne/n8n-local-mail-triage" target="_blank" rel="noopener noreferrer"
-                  class="btn-project-source">Code source</a>
+                  class="btn-project-source" data-i18n="btn_source_code">Code source</a>
               </footer>
             </article>
 
             <!-- Projet Personnel 5 : Thronefall RL -->
             <article class="project-card">
               <header class="project-header">
-                <h3>Thronefall RL</h3>
+                <h3 data-i18n="p_thronefall_title">Thronefall RL</h3>
               </header>
-              <p class="project-desc">
+              <p class="project-desc" data-i18n="p_thronefall_desc">
                 Agent d'apprentissage par renforcement hiérarchique Jour/Nuit pour Thronefall sous Arch Linux (Wayland) avec accélération GPU AMD ROCm : gestion stratégique de l'économie et des constructions le jour, combat temps réel la nuit, capture d'écran via Gamescope et injection d'entrées noyau via evdev/uinput.
               </p>
               <ul class="project-tags">
@@ -194,9 +198,10 @@
               </ul>
               <footer class="project-footer">
                 <button type="button" class="btn-project-disabled" aria-disabled="true"
-                  data-tooltip="Projet en cours">Voir le projet</button>
+                  data-tooltip="Projet en cours" data-i18n="btn_view_project"
+                  data-i18n-tooltip="tooltip_in_progress">Voir le projet</button>
                 <a href="https://github.com/TLableigne/thronefall-rl" target="_blank" rel="noopener noreferrer"
-                  class="btn-project-source">Code source</a>
+                  class="btn-project-source" data-i18n="btn_source_code">Code source</a>
               </footer>
             </article>
 
@@ -205,49 +210,51 @@
 
         <!-- Sous-catégorie 2 : Projets Universitaires -->
         <div class="project-category">
-          <h3>Projets Universitaires</h3>
+          <h3 data-i18n="projects_university_title">Projets Universitaires</h3>
           <div class="projects-grid">
 
           <!-- Projet 1 : SAÉ S1.01 (Odomo) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Station Domotique & Météo</h3>
+              <h3 data-i18n="u_odomo_title">Station Domotique & Météo</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_odomo_desc">
               Application Java simulant une station connectée avec affichage dynamique de métriques environnementales et
               régulation du chauffage.
             </p>
             <ul class="project-tags">
               <li>Java</li>
               <li>JUnit</li>
-              <li>Algorithmique</li>
+              <li data-i18n="tag_algorithms">Algorithmique</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link" data-modal-img="assets/odomo-weather-station.png"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_odomo_modal" data-modal-img="assets/odomo-weather-station.png"
                 data-modal-desc="Conception et développement d'une application Java orientée objet simulant l'acquisition de données environnementales et la régulation intelligente d'un système de chauffage multi-zones. || L'architecture logicielle s'appuie sur une structure de tableaux circulaires 1D et 2D pour assurer un décalage temporel sans duplication inutile en mémoire, couplée à un affichage matriciel 2D en console simulant un écran LCD. L'ensemble est validé par une suite rigoureuse de 42 tests unitaires sous JUnit 5 garantissant la robustesse et l'absence de régression du code.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/odomo-weather-station" target="_blank" rel="noopener noreferrer"
-                class="btn-project-source">Code source</a>
+                class="btn-project-source" data-i18n="btn_source_code">Code source</a>
             </footer>
           </article>
 
           <!-- Projet 2 : SAÉ S1.02 (Biosphère 7) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Biosphère 7 : Jeu de Plateau & IA</h3>
+              <h3 data-i18n="u_biosphere_title">Biosphère 7 : Jeu de Plateau & IA</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_biosphere_desc">
               Modélisation orientée objet des règles d'un jeu de stratégie au tour par tour et conception
               d'intelligences artificielles autonomes.
             </p>
             <ul class="project-tags">
               <li>Java</li>
-              <li>IA</li>
+              <li data-i18n="tag_ai">IA</li>
               <li>JUnit</li>
               <li>Git</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_biosphere_modal"
                 data-modal-desc="Modélisation et développement d'un jeu de plateau stratégique au tour par tour sur une grille de 14x14 cases, intégrant la gestion de règles métiers complexes et la structuration d'intelligences artificielles autonomes. || Le projet a nécessité une validation successive de 5 niveaux de difficulté sur les serveurs d'évaluation de l'IUT, validée par une batterie de tests unitaires JUnit et des tournois automatisés. Il intègre notamment le déploiement d'une IA gloutonne basée sur une évaluation locale des coups pour optimiser les choix stratégiques de la partie.">Voir
                 le projet</a>
             </footer>
@@ -256,19 +263,20 @@
           <!-- Projet 3 : SAÉ S1.03 (Retro-PC Dépannage) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Refactorisation Web : Retro-PC</h3>
+              <h3 data-i18n="u_retropc_title">Refactorisation Web : Retro-PC</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_retropc_desc">
               Refonte technique complète d'un site vitrine vers les standards modernes du web, axée sur l'accessibilité
               et la performance.
             </p>
             <ul class="project-tags">
-              <li>HTML5 Sémantique</li>
+              <li data-i18n="tag_html5_semantic">HTML5 Sémantique</li>
               <li>CSS3 Grid/Flexbox</li>
               <li>Mobile-First</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_retropc_modal"
                 data-modal-desc="Refactorisation technique complète et responsive d'un site web historique de réparation informatique pour l'aligner sur les standards modernes du web et les exigences d'éco-conception. || Le code source a été entièrement restructuré pour obtenir une validation W3C parfaite, une intégration Mobile-First fluide de 320px à 4K grâce à l'utilisation de CSS3 moderne et d'un HTML5 rigoureusement sémantique.">Voir
                 le projet</a>
             </footer>
@@ -277,20 +285,21 @@
           <!-- Projet 4 : SAÉ S1.04 (Musicalertes) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Base de Données Musicalertes</h3>
+              <h3 data-i18n="u_musicalertes_title">Base de Données Musicalertes</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_musicalertes_desc">
               Conception relationnelle et implémentation SQL complète du système d'information culturelle d'une
               plateforme de billetterie musicale.
             </p>
             <ul class="project-tags">
               <li>SQL</li>
               <li>Win'Design</li>
-              <li>MCD / MLR</li>
-              <li>Modélisation BD</li>
+              <li data-i18n="tag_mcd_mlr">MCD / MLR</li>
+              <li data-i18n="tag_db_modeling">Modélisation BD</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_musicalertes_modal"
                 data-modal-desc="Conception et refonte complète de la base de données relationnelle de la plateforme Musicalertes afin de centraliser la gestion des artistes, concerts, salles, festivals et alertes d'abonnés. || La modélisation s'appuie sur un modèle conceptuel de données (MCD) normalisé réalisé sous Win'Design, converti en modèle logique relationnel (MLR) et implémenté via un script SQL de création et de peuplement intégrant contraintes d'intégrité référentielle, déclencheurs et requêtes d'exploitation.">Voir
                 le projet</a>
             </footer>
@@ -299,9 +308,9 @@
           <!-- Projet 5 : SAÉ S1.05 (Poste de travail Linux) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Déploiement d'Environnement Linux</h3>
+              <h3 data-i18n="u_linux_title">Déploiement d'Environnement Linux</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_linux_desc">
               Configuration, sécurisation et automatisation par scripts Bash d'un environnement virtuel Debian dédié au
               développement fonctionnel.
             </p>
@@ -309,10 +318,11 @@
               <li>Linux Debian</li>
               <li>Bash Scripting</li>
               <li>VMware</li>
-              <li>Sécurité / Sudo</li>
+              <li data-i18n="tag_security_sudo">Sécurité / Sudo</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_linux_modal"
                 data-modal-desc="Déploiement et configuration d'une machine virtuelle Linux Debian 12 légère et sécurisée, dimensionnée pour un usage multi-utilisateurs avec isolation stricte des profils d'administration et de développement. || L'infrastructure intègre un partitionnement standard avec /, /home et swap, une automatisation complète du provisionnement logiciel par script Bash modulaire, ainsi qu'une validation rigoureuse validée sans aucune erreur par un script de test automatisé.">Voir
                 le projet</a>
             </footer>
@@ -321,20 +331,21 @@
           <!-- Projet 6 : SAÉ S1.06 (Audit Baillardran) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Audit Stratégique d'Entreprise</h3>
+              <h3 data-i18n="u_baillardran_title">Audit Stratégique d'Entreprise</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_baillardran_desc">
               Diagnostic fonctionnel, macro et micro-environnemental de la maison Baillardran face à une crise de
               réputation et de rentabilité.
             </p>
             <ul class="project-tags">
               <li>PESTEL</li>
-              <li>Forces de Porter</li>
-              <li>Analyse Financière</li>
-              <li>Gestion de Projet</li>
+              <li data-i18n="tag_porter">Forces de Porter</li>
+              <li data-i18n="tag_financial_analysis">Analyse Financière</li>
+              <li data-i18n="tag_project_mgmt">Gestion de Projet</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_baillardran_modal"
                 data-modal-desc="Réalisation d'un diagnostic fonctionnel, macro et micro-environnemental approfondi de l'entreprise Maison Baillardran afin de formuler des axes de pivot stratégique face aux évolutions réglementaires et concurrentielles. || L'analyse s'articule autour des six piliers fondamentaux incluant la matrice PESTEL, les 5 forces de Porter, la matrice SWOT et l'analyse des ratios financiers Diane+, couronnée par une soutenance orale de restitution devant un jury professionnel.">Voir
                 le projet</a>
             </footer>
@@ -343,9 +354,9 @@
           <!-- Projet 7 : SAÉ S2.01 (BUTopia) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Les Mystères de BUTopia</h3>
+              <h3 data-i18n="u_butopia_title">Les Mystères de BUTopia</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_butopia_desc">
               Application de bureau C# WinForms pour la création, l'entraînement et la simulation d'épreuves de
               personnages de jeu de rôles.
             </p>
@@ -355,68 +366,71 @@
               <li>UML</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link" data-modal-img="assets/butopia-rpg-manager.png"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_butopia_modal" data-modal-img="assets/butopia-rpg-manager.png"
                 data-modal-desc="Développement d'une application de bureau événementielle en C# WinForms conçue pour assister les joueurs dans la création de fiches de personnages, la simulation de lancers de dés probabilistes et le déroulement d'épreuves de jeu de rôles. || L'architecture logicielle s'articule autour d'une modélisation UML préalable, d'une interface graphique réactive avec gestion dynamique des caractéristiques et d'une suite de tests unitaires NUnit validant les règles métier et les calculs de probabilités.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/butopia-rpg-manager" target="_blank" rel="noopener noreferrer"
-                class="btn-project-source">Code source</a>
+                class="btn-project-source" data-i18n="btn_source_code">Code source</a>
             </footer>
           </article>
 
           <!-- Projet 8 : SAÉ S2.02 (Coloration de Graphes) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Coloration & Théorie des Graphes</h3>
+              <h3 data-i18n="u_graphs_title">Coloration & Théorie des Graphes</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_graphs_desc">
               Conception orientée objet et analyse de complexité d'algorithmes de coloration gloutons et récursifs pour
               graphes planaires.
             </p>
             <ul class="project-tags">
               <li>Java</li>
-              <li>Graphes</li>
-              <li>Algorithmique</li>
-              <li>Complexité</li>
+              <li data-i18n="tag_graphs">Graphes</li>
+              <li data-i18n="tag_algorithms">Algorithmique</li>
+              <li data-i18n="tag_complexity">Complexité</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link" data-modal-img="assets/graph-coloring-visualizer.png"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_graphs_modal" data-modal-img="assets/graph-coloring-visualizer.png"
                 data-modal-desc="Implémentation d'une structure de données de graphe orientée objet en Java et développement de trois algorithmes avancés de coloration pour traiter des topologies complexes. || Le programme gère efficacement des graphes planaires de grande envergure atteignant jusqu'à 2 000 sommets, tout en respectant les invariants topologiques et en validant des performances de complexité temporelle en O(V log V) vérifiées par des tests JUnit.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/graph-coloring-visualizer" target="_blank"
-                rel="noopener noreferrer" class="btn-project-source">Code source</a>
+                rel="noopener noreferrer" class="btn-project-source" data-i18n="btn_source_code">Code source</a>
             </footer>
           </article>
 
           <!-- Projet 9 : SAÉ S2.03 (Nextcloud & OnlyOffice) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Infrastructure Réseau & Cloud</h3>
+              <h3 data-i18n="u_nextcloud_title">Infrastructure Réseau & Cloud</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_nextcloud_desc">
               Déploiement d'un réseau partitionné avec routage IP statique et hébergement sécurisé de services
               collaboratifs Nextcloud et OnlyOffice.
             </p>
             <ul class="project-tags">
-              <li>Réseaux IP</li>
+              <li data-i18n="tag_ip_networks">Réseaux IP</li>
               <li>Nextcloud</li>
-              <li>Sécurité TLS</li>
+              <li data-i18n="tag_tls_security">Sécurité TLS</li>
               <li>Debian</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link" data-modal-img="assets/nextcloud-infrastructure-deployment.png"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_nextcloud_modal" data-modal-img="assets/nextcloud-infrastructure-deployment.png"
                 data-modal-desc="Déploiement d'une architecture réseau cloisonnée en sous-réseaux isolés et interconnectés par un routeur Linux passerelle afin d'héberger des services cloud collaboratifs sécurisés. || L'environnement intègre un routage et un adressage IP statiques, un pare-feu de filtrage des flux, le chiffrement HTTPS via certificats auto-signés ainsi que le déploiement et l'interconnexion opérationnelle de Nextcloud et OnlyOffice.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/nextcloud-infrastructure-deployment" target="_blank"
-                rel="noopener noreferrer" class="btn-project-source">Code source</a>
+                rel="noopener noreferrer" class="btn-project-source" data-i18n="btn_source_code">Code source</a>
             </footer>
           </article>
 
           <!-- Projet 10 : SAÉ S2.04 & S2.05 (Risques Climatiques) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Visualisation Risques Climatiques</h3>
+              <h3 data-i18n="u_climate_title">Visualisation Risques Climatiques</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_climate_desc">
               Plateforme d'analyse et de visualisation de données Open Data sur les aléas naturels en région
               Nouvelle-Aquitaine.
             </p>
@@ -424,23 +438,24 @@
               <li>Python</li>
               <li>Data Viz</li>
               <li>Open Data</li>
-              <li>Statistiques</li>
+              <li data-i18n="tag_statistics">Statistiques</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link" data-modal-img="assets/climate-risk-analytics.png"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_climate_modal" data-modal-img="assets/climate-risk-analytics.png"
                 data-modal-desc="Traitement, nettoyage et analyse exploratoire de jeux de données Open Data régionaux portant sur les aléas naturels, les inondations et les risques climatiques en Nouvelle-Aquitaine. || Le pipeline Python développé en binôme fusionne et normalise les données géographiques et météorologiques pour générer des cartographies interactives et des graphiques statistiques décisionnels, accompagnés d'une restitution technique bilingue.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/climate-risk-analytics" target="_blank" rel="noopener noreferrer"
-                class="btn-project-source">Code source</a>
+                class="btn-project-source" data-i18n="btn_source_code">Code source</a>
             </footer>
           </article>
 
           <!-- Projet 11 : SAÉ S3.05 (Labyrinthe JavaFX) -->
           <article class="project-card">
             <header class="project-header">
-              <h3>Labyrinthe JavaFX & Plus Courts Chemins</h3>
+              <h3 data-i18n="u_labyrinth_title">Labyrinthe JavaFX & Plus Courts Chemins</h3>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="u_labyrinth_desc">
               Jeu d'exploration multi-étages en JavaFX intégrant du polymorphisme pour les entités et la recherche de
               chemin optimal via JGraphT.
             </p>
@@ -450,11 +465,12 @@
               <li>Maven</li>
             </ul>
             <footer class="project-footer">
-              <a href="#project-modal" class="btn-project-link" data-modal-img="assets/javafx-labyrinth-crawler.png"
+              <a href="#project-modal" class="btn-project-link" data-i18n="btn_view_project"
+                data-i18n-modal-desc="u_labyrinth_modal" data-modal-img="assets/javafx-labyrinth-crawler.png"
                 data-modal-desc="Développement en autonomie complète sur deux semaines et plus de 50 commits d'un jeu d'exploration de labyrinthe 2D multi-étages en JavaFX, mettant en scène un héros piloté au clavier et des entités autonomes polymorphes. || L'application sépare strictement la logique métier du rendu graphique fluide à 60 FPS, gère les accès concurrents (CopyOnWriteArrayList) et intègre la bibliothèque JGraphT pour tracer en temps réel le plus court chemin vers la sortie via l'algorithme de Dijkstra.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/javafx-labyrinth-crawler" target="_blank" rel="noopener noreferrer"
-                class="btn-project-source">Code source</a>
+                class="btn-project-source" data-i18n="btn_source_code">Code source</a>
             </footer>
           </article>
 
@@ -466,15 +482,17 @@
 
     <section id="resume" class="section resume-section">
       <div class="container resume-container">
-        <h2>Curriculum Vitae</h2>
-        <p>Retrouvez le détail de mon parcours académique et technique.</p>
+        <h2 data-i18n="resume_title">Curriculum Vitae</h2>
+        <p data-i18n="resume_desc">Retrouvez le détail de mon parcours académique et technique.</p>
 
         <div class="resume-actions">
-          <a href="assets/CV_Thomas_LABLEIGNE.pdf" class="btn-resume-download" download="CV_Thomas_LABLEIGNE.pdf">
+          <a href="assets/CV_Thomas_LABLEIGNE.pdf" class="btn-resume-download" download="CV_Thomas_LABLEIGNE.pdf"
+            data-i18n="resume_download">
             Télécharger mon CV (PDF)
           </a>
 
-          <a href="assets/CV_Thomas_LABLEIGNE.pdf" class="btn-resume-view" target="_blank" rel="noopener noreferrer">
+          <a href="assets/CV_Thomas_LABLEIGNE.pdf" class="btn-resume-view" target="_blank" rel="noopener noreferrer"
+            data-i18n="resume_view">
             Consulter en ligne
           </a>
         </div>
@@ -483,36 +501,39 @@
 
     <section id="contact" class="section contact-section">
       <div class="container">
-        <h2>Contact</h2>
-        <p>N'hésitez pas à me contacter via le formulaire ou par e-mail.</p>
+        <h2 data-i18n="contact_title">Contact</h2>
+        <p data-i18n="contact_desc">N'hésitez pas à me contacter via le formulaire ou par e-mail.</p>
 
         <div class="contact-layout">
           <aside class="contact-direct">
-            <h3>Par e-mail direct</h3>
+            <h3 data-i18n="contact_direct_title">Par e-mail direct</h3>
             <a href="mailto:thom1.lableigne@gmail.com" class="direct-mail-link">
               thom1.lableigne@gmail.com
             </a>
           </aside>
 
           <div class="contact-form-wrapper">
-            <h3>Formulaire de contact</h3>
+            <h3 data-i18n="contact_form_title">Formulaire de contact</h3>
             <form id="contact-form" class="contact-form">
               <div class="form-group">
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name" required placeholder="Votre nom" />
+                <label for="name" data-i18n="contact_label_name">Nom</label>
+                <input type="text" id="name" name="name" required placeholder="Votre nom"
+                  data-i18n-placeholder="contact_placeholder_name" />
               </div>
 
               <div class="form-group">
-                <label for="email">Adresse e-mail</label>
-                <input type="email" id="email" name="email" required placeholder="nom@exemple.com" />
+                <label for="email" data-i18n="contact_label_email">Adresse e-mail</label>
+                <input type="email" id="email" name="email" required placeholder="nom@exemple.com"
+                  data-i18n-placeholder="contact_placeholder_email" />
               </div>
 
               <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required placeholder="Votre message..."></textarea>
+                <label for="message" data-i18n="contact_label_message">Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Votre message..."
+                  data-i18n-placeholder="contact_placeholder_message"></textarea>
               </div>
 
-              <button type="submit" id="submit-btn" class="btn-submit">
+              <button type="submit" id="submit-btn" class="btn-submit" data-i18n="contact_submit">
                 Envoyer
               </button>
               <p id="form-status" style="margin-top: 1rem; font-weight: 500; font-size: 0.9rem"></p>
@@ -526,12 +547,12 @@
   <!-- Modal de prévisualisation de projet -->
   <div id="project-modal" class="modal-overlay" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button type="button" class="modal-close" aria-label="Fermer la fenêtre">
+      <button type="button" class="modal-close" aria-label="Fermer la fenêtre" data-i18n-aria-label="aria_modal_close">
         &times;
       </button>
       <h3 id="modal-title"></h3>
       <div class="modal-body">
-        <img id="modal-img" src="" alt="Aperçu du projet" />
+        <img id="modal-img" src="" alt="Aperçu du projet" data-i18n-alt="alt_modal_preview" />
         <div id="modal-desc"></div>
       </div>
     </div>
@@ -539,7 +560,7 @@
 
   <footer class="site-footer">
     <div class="container footer-container">
-      <p>&copy; 2026 Thomas Lableigne. Tous droits réservés.</p>
+      <p data-i18n="footer_copyright">&copy; 2026 Thomas Lableigne. Tous droits réservés.</p>
     </div>
   </footer>
 
