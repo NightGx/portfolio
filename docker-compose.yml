@@ -1,0 +1,45 @@
+services:
+  tailscale:
+    image: tailscale/tailscale:latest
+    container_name: ts-portfolio
+    hostname: portfolio
+    environment:
+      - TS_AUTHKEY=${TS_AUTHKEY}
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+    volumes:
+      - ts-state:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    restart: unless-stopped
+
+  web:
+    image: nginx:alpine
+    container_name: portfolio-web
+    network_mode: service:tailscale
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - tailscale
+    restart: unless-stopped
+
+  relay:
+    image: node:22-alpine
+    container_name: portfolio-relay
+    network_mode: service:tailscale
+    working_dir: /app
+    environment:
+      - PORT=3000
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+    volumes:
+      - ./relay:/app
+    command: ["node", "server.js"]
+    depends_on:
+      - tailscale
+    restart: unless-stopped
+
+volumes:
+  ts-state:
