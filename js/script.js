@@ -60,11 +60,17 @@ if (projectModal) {
 
     const title = card.querySelector("h3").textContent;
     const desc = link.getAttribute("data-modal-desc") || card.querySelector(".project-desc").textContent;
-    const imgSrc = link.getAttribute("href");
+    const imgSrc = link.getAttribute("data-modal-img");
 
     modalTitle.textContent = title;
-    modalImg.setAttribute("src", imgSrc);
-    modalImg.setAttribute("alt", title);
+    if (imgSrc) {
+      modalImg.setAttribute("src", imgSrc);
+      modalImg.setAttribute("alt", title);
+      modalImg.style.display = "block";
+    } else {
+      modalImg.removeAttribute("src");
+      modalImg.style.display = "none";
+    }
     modalDesc.textContent = desc;
 
     projectModal.classList.add("active");
