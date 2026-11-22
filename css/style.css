@@ -368,7 +368,24 @@ body.theme-dark #theme-toggle-btn .icon-sun {
   color: var(--nav-link-hover);
 }
 
-/* --- Section Projets --- */
+/* --- Section Projets & Catégories --- */
+.project-category {
+  margin-bottom: 3rem;
+}
+
+.project-category:last-child {
+  margin-bottom: 0;
+}
+
+.project-category h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: var(--title-color);
+  display: inline-block;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.25rem;
+}
+
 .projects-grid {
   display: flex;
   flex-wrap: wrap;
