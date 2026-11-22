@@ -7,9 +7,9 @@
 ## Tech Stack
 
 - **Front-end:** HTML5, CSS3, JavaScript (Vanilla, modular architecture)
-- **Back-end (API):** Node.js / Express.js
+- **Back-end (API):** Node.js / Express.js (Micro-relay)
 - **Notification:** Discord Webhook integration for the contact form
-- **Infrastructure:** Self-hosted on a personal server (Debian 13) using Nginx
+- **Infrastructure:** Docker Compose, Nginx Reverse Proxy, Tailscale VPN
 
 ## Key Features
 
@@ -23,11 +23,28 @@
 .
 ├── index.html
 ├── README.md
-├── css
+├── README.fr.md
+├── .env.example
+├── docker-compose.yml
+├── nginx.conf
+├── sync-portfolio.sh
+├── assets/
+│   └── CV_Thomas_LABLEIGNE.pdf
+├── css/
 │   └── style.css
-└── js
-    ├── script.js
-    └── ui.js
-
-3 directories, 5 files
+├── js/
+│   ├── script.js
+│   └── ui.js
+└── relay/
+    ├── package.json
+    ├── package-lock.json
+    └── server.js
 ```
+
+## Infrastructure & Request Flow
+
+This project is self-hosted on a personal Debian 13 home server using a containerized setup:
+
+- **Reverse Proxy (Nginx):** Serves the static front-end assets on port 80 and acts as a reverse proxy by forwarding `/api/` requests to the internal Node.js container.
+- **Security Micro-Relay (Express.js):** Isolates the Discord webhook URL on the server side (loaded via environment variables) to prevent credential exposure in client-side JavaScript.
+- **Network & Deployment:** Orchestrated via Docker Compose, exposed securely over Tailscale VPN, and updated via a custom synchronization script (`sync-portfolio.sh`).
