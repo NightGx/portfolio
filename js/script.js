@@ -63,6 +63,20 @@ if (projectModal) {
     const imgSrc = link.getAttribute("data-modal-img");
 
     modalTitle.textContent = title;
+
+    // Tags clonés sous #modal-title
+    let tagsContainer = projectModal.querySelector(".modal-tags");
+    if (!tagsContainer) {
+      tagsContainer = document.createElement("div");
+      tagsContainer.className = "modal-tags";
+      modalTitle.insertAdjacentElement("afterend", tagsContainer);
+    }
+    tagsContainer.innerHTML = "";
+    const projectTags = card.querySelector(".project-tags");
+    if (projectTags) {
+      tagsContainer.appendChild(projectTags.cloneNode(true));
+    }
+
     if (imgSrc) {
       modalImg.setAttribute("src", imgSrc);
       modalImg.setAttribute("alt", title);
@@ -71,7 +85,14 @@ if (projectModal) {
       modalImg.removeAttribute("src");
       modalImg.style.display = "none";
     }
-    modalDesc.textContent = desc;
+
+    modalDesc.innerHTML = "";
+    const parts = desc.split("||").map(p => p.trim()).filter(Boolean);
+    parts.forEach(part => {
+      const p = document.createElement("p");
+      p.textContent = part;
+      modalDesc.appendChild(p);
+    });
 
     projectModal.classList.add("active");
     projectModal.setAttribute("aria-hidden", "false");

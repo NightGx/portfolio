@@ -709,9 +709,13 @@ body.theme-dark #theme-toggle-btn .icon-sun {
 
 .modal-content h3 {
   font-size: 1.35rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   color: var(--title-color);
   padding-right: 2rem;
+}
+
+.modal-tags {
+  margin-bottom: 1.25rem;
 }
 
 .modal-body img {
@@ -720,16 +724,22 @@ body.theme-dark #theme-toggle-btn .icon-sun {
   height: auto;
   border-radius: 10px;
   border: 1px solid var(--border-color);
-  margin: 0.5rem 0 1.25rem 0;
+  margin: 0 0 1.25rem 0;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   object-fit: cover;
   display: block;
 }
 
-.modal-body p {
+.modal-body p,
+#modal-desc p {
   color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.modal-body p:last-child,
+#modal-desc p:last-child {
   margin-bottom: 0;
 }
 

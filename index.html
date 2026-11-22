@@ -23,31 +23,32 @@
       <button type="button" class="lang-switch">EN</button>
 
       <div class="nav-actions">
-        <!-- Bouton Play / Pause pour le fond animé -->
-        <button type="button" id="bg-toggle-btn" class="icon-btn"
-          aria-label="Mettre en pause l'animation d'arrière-plan">
-          <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <rect x="6" y="4" width="4" height="16" rx="1"></rect>
-            <rect x="14" y="4" width="4" height="16" rx="1"></rect>
-          </svg>
-          <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <button type="button" id="theme-toggle-btn" class="icon-btn" aria-label="Changer de thème (clair / sombre)">
-            <!-- Icône Soleil (pour le passage au mode clair ou affichée en mode sombre) -->
-            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 0 0-1.41-1.41l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 0 0-1.41-1.41l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z">
-              </path>
-            </svg>
+     <!-- Bouton Play / Pause pour le fond animé -->
+     <button type="button" id="bg-toggle-btn" class="icon-btn"
+       aria-label="Mettre en pause l'animation d'arrière-plan">
+       <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+         <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+         <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+       </svg>
+       <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+         <polygon points="5 3 19 12 5 21 5 3"></polygon>
+       </svg>
+     </button>
 
-            <!-- Icône Lune (pour le passage au mode sombre ou affichée en mode clair) -->
-            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </button>
-        </button>
-      </div>
+     <button type="button" id="theme-toggle-btn" class="icon-btn" aria-label="Changer de thème (clair / sombre)">
+       <!-- Icône Soleil (pour le passage au mode clair ou affichée en mode sombre) -->
+       <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+         <path
+           d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 0 0-1.41-1.41l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 0 0-1.41-1.41l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z">
+         </path>
+       </svg>
+
+       <!-- Icône Lune (pour le passage au mode sombre ou affichée en mode clair) -->
+       <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+       </svg>
+     </button>
+   </div>
     </nav>
   </header>
 
@@ -93,7 +94,7 @@
               </ul>
               <footer class="project-footer">
                 <a href="#project-modal" class="btn-project-link" data-modal-img="assets/homelab.png"
-                  data-modal-desc="CDC : Déployer et administrer une infrastructure cloud souveraine et résiliente sur serveur Debian 13 dédié (AMD Ryzen 5, 16 Go RAM, SSD 128 Go + HDD 2 To /srv/data) avec conteneurisation isolée et exposition sécurisée sans ouverture de port WAN brut. | RÉSULTATS : Orchestration de 12 services critiques (n8n automation, Ollama LLM local, FileDrive, serveurs de jeux PaperMC/SkyFactory/StoneBlock, TeamSpeak) avec 99.9% d'uptime, routage reverse proxy Nginx et tunnel Cloudflare/Tailscale résolvant les problématiques de CGNAT et sécurisant les flux HTTPS. | OUTILS & MÉTHODES : Debian 13 Trixie, Docker & Docker Compose v2.20+, Nginx Reverse Proxy, systemd, Tailscale VPN, Cloudflare Tunnels, automatisation Bash. | COMPÉTENCES : Administrer (architectures réseau et services cloud auto-hébergés) & Optimiser (fiabilité, durabilité et sécurité des flux de données).">Voir
+                  data-modal-desc="Infrastructure serveur personnelle disponible 24h/24 sur une tour dédiée sous Debian 13 (AMD Ryzen 5 5500, 16 Go de RAM, SSD 128 Go et HDD 2 To monté sur /srv/data), conçue pour héberger mes propres outils et services de jeu sans dépendre de plateformes tierces. || L'ensemble repose sur une séparation stricte entre les services conteneurisés (Docker Compose) et les unités natives systemd : gestionnaire de fichiers maison filedrive avec indexation SQLite FTS5, instance LLM locale Ollama, automatisation n8n, serveur vocal TeamSpeak et trois serveurs Minecraft moddés (PaperMC, SkyFactory 4, StoneBlock 4). Les flux publics passent par Nginx, Cloudflare Tunnels et Playit.gg sans exposition de ports bruts, tandis que toute l'administration est isolée sur un réseau maillé privé Tailscale.">Voir
                   le projet</a>
                 <a href="https://github.com/TLableigne/homelab-infrastructure" target="_blank" rel="noopener noreferrer"
                   class="btn-project-source">Code source</a>
@@ -117,7 +118,7 @@
               </ul>
               <footer class="project-footer">
                 <a href="#project-modal" class="btn-project-link" data-modal-img="assets/arch-config.png"
-                  data-modal-desc="CDC : Concevoir un environnement de travail de développement sous Arch Linux rolling-release hautement personnalisé, fluide, optimisé pour l'ergonomie clavier et l'accessibilité Wayland. | RÉSULTATS : Intégration d'un gestionnaire de fenêtres en tiling Wayland (Hyprland v0.42+), barre Quickshell réactive, terminal Kitty accéléré GPU (latence < 5ms), thème GRUB Cyberpunk unifié et gestion multi-identité Git automatisée par règles conditionnelles includeIf. | OUTILS & MÉTHODES : Arch Linux, Hyprland (Wayland), Quickshell, Fish Shell, Starship prompt, Bash scripting, Git conditional includes. | COMPÉTENCES : Réaliser (personnalisation avancée de l'OS) & Administrer (maîtrise des environnements bas-niveau et automatisation système).">Voir
+                  data-modal-desc="Configuration système modulaire sous Arch Linux pensée pour offrir un environnement de développement rapide, léger et entièrement pilotable au clavier sur une configuration double écran à taux de rafraîchissement mixtes (240 Hz et 165 Hz). || L'interface s'appuie sur le compositeur Wayland Hyprland, une barre système réactive développée sous Quickshell, le terminal Kitty accéléré GPU et un shell Fish personnalisé avec Starship. Le dépôt intègre également un thème GRUB 1440p sur mesure ainsi qu'une gouvernance Git dynamique basée sur des directives conditionnelles includeIf et des alias SSH pour isoler automatiquement mes identités personnelle, universitaire et gaming.">Voir
                   le projet</a>
                 <a href="https://github.com/TLableigne/arch-dotfiles" target="_blank" rel="noopener noreferrer"
                   class="btn-project-source">Code source</a>
@@ -141,7 +142,7 @@
               </ul>
               <footer class="project-footer">
                 <a href="#project-modal" class="btn-project-link" data-modal-img="assets/portfolio-backend.png"
-                  data-modal-desc="CDC : Concevoir, développer et déployer un site vitrine personnel responsive, éco-conçu et performant, couplé à un backend sécurisé de relais d'e-mails et de webhooks anti-spam. | RÉSULTATS : Interface fluide animée en pur CSS avec gestion d'accessibilité (prefers-reduced-motion, Lighthouse 100% SEO/Performance), séparation stricte UI/métier et isolation d'un serveur Express conteneurisé intégrant rate-limiting (10 req/15min) et validation rigoureuse des charges utiles JSON. | OUTILS & MÉTHODES : HTML5 sémantique, CSS3 (variables, animations), JavaScript ES6+ (modules modulaire ui.js/script.js), Node.js v20+, Express 5, CORS, express-rate-limit, Docker, Nginx. | COMPÉTENCES : Réaliser (interfaces web esthétiques et ergonomiques) & Optimiser (sécurité des flux API, robustesse backend et performance front-end).">Voir
+                  data-modal-desc="Portfolio technique léger et responsive conçu en HTML5, CSS3 et JavaScript vanilla, pensé pour présenter mes réalisations tout en offrant un canal de contact direct sans exposer de clés ou d'URL sensibles côté navigateur. || Le site statique est servi par Nginx derrière un micro-relais backend en Node.js et Express v5 isolé dans Docker Compose. Le formulaire communique en asynchrone via fetch pour contourner les blocages de soumission native, protégé par validation stricte des entrées, restriction CORS et limitation de débit anti-spam (5 requêtes par 15 minutes), transmettant instantanément chaque message sous forme d'embed sur Discord.">Voir
                   le projet</a>
                 <a href="https://github.com/TLableigne/portfolio" target="_blank" rel="noopener noreferrer"
                   class="btn-project-source">Code source</a>
@@ -172,7 +173,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link" data-modal-img="assets/odomo-weather-station.png"
-                data-modal-desc="CDC : Concevoir et implémenter une application Java orientée objet pour une station domotique (Odomo) simulant l'acquisition de données environnementales et la régulation de chauffage multi-zones. | RÉSULTATS : Implémentation d'algorithmes de décalage temporel sans duplication mémoire (tableaux circulaires 1D/2D), rendu matriciel 2D en console simulant un afficheur LCD et validation de 42 tests unitaires garantissant 0 régression. | OUTILS & MÉTHODES : Java SE 17, POO modulaire, tableaux 1D/2D, logique d'horloge décrémentée, JUnit 5, NetBeans IDE. | COMPÉTENCES : Réaliser (concevoir un code propre, modulaire et documenté) & Optimiser (structuration mémoire efficace et algorithmique déterministe).">Voir
+                data-modal-desc="Conception et développement d'une application Java orientée objet simulant l'acquisition de données environnementales et la régulation intelligente d'un système de chauffage multi-zones. || L'architecture logicielle s'appuie sur une structure de tableaux circulaires 1D et 2D pour assurer un décalage temporel sans duplication inutile en mémoire, couplée à un affichage matriciel 2D en console simulant un écran LCD. L'ensemble est validé par une suite rigoureuse de 42 tests unitaires sous JUnit 5 garantissant la robustesse et l'absence de régression du code.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/odomo-weather-station" target="_blank" rel="noopener noreferrer"
                 class="btn-project-source">Code source</a>
@@ -196,7 +197,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link"
-                data-modal-desc="CDC : Modéliser un jeu de plateau stratégique au tour par tour de 14x14 cases, structurer les règles métiers complexes et concevoir des intelligences artificielles autonomes pour des tournois automatisés. | RÉSULTATS : Validation successive de 5 niveaux de difficulté sur les serveurs d'évaluation IUT, couverture de tests exhaustive (94% de branches couvertes) et déploiement d'une IA gloutonne (évaluation locale des coups) optimisée. | OUTILS & MÉTHODES : Java (collections, encapsulation, polymorphisme), JUnit 5, NetBeans, versioning Git avec tags sémantiques. | COMPÉTENCES : Réaliser (logique applicative complexe et architecture logicielle) & Optimiser (anticipation des cas limites et algorithmes prédictifs performants).">Voir
+                data-modal-desc="Modélisation et développement d'un jeu de plateau stratégique au tour par tour sur une grille de 14x14 cases, intégrant la gestion de règles métiers complexes et la structuration d'intelligences artificielles autonomes. || Le projet a nécessité une validation successive de 5 niveaux de difficulté sur les serveurs d'évaluation de l'IUT, validée par une batterie de tests unitaires JUnit et des tournois automatisés. Il intègre notamment le déploiement d'une IA gloutonne basée sur une évaluation locale des coups pour optimiser les choix stratégiques de la partie.">Voir
                 le projet</a>
             </footer>
           </article>
@@ -217,10 +218,8 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link"
-                data-modal-desc="CDC : Refactorisation technique complète et responsive d'un site vitrine historique « Retro-PC Dépannage » en appliquant les normes modernes du web et les exigences d'éco-conception. | RÉSULTATS : Code source validé W3C sans aucune erreur, intégration Mobile-First fluide sur viewports 320px à 4K et obtention de scores Lighthouse > 95/100 en Performance, Accessibilité et SEO. | OUTILS & MÉTHODES : HTML5 sémantique, CSS3 moderne (variables, Grid macro, Flexbox micro), Google Lighthouse, W3C Markup Validator, Git. | COMPÉTENCES : Réaliser (interfaces web ergonomiques et responsives) & Optimiser (qualité du code, accessibilité universelle et performance front-end).">Voir
+                data-modal-desc="Refactorisation technique complète et responsive d'un site web historique de réparation informatique pour l'aligner sur les standards modernes du web et les exigences d'éco-conception. || Le code source a été entièrement restructuré pour obtenir une validation W3C parfaite, une intégration Mobile-First fluide de 320px à 4K grâce à l'utilisation de CSS3 moderne et d'un HTML5 rigoureusement sémantique.">Voir
                 le projet</a>
-              <a href="https://github.com/TLableigne" target="_blank" rel="noopener noreferrer"
-                class="btn-project-source">Code source</a>
             </footer>
           </article>
 
@@ -241,7 +240,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link"
-                data-modal-desc="CDC : Refonte complète de la base de données relationnelle de Musicalertes pour la gestion centralisée des artistes, concerts, salles, festivals et alertes abonnés (volume estimé à 500k tuples). | RÉSULTATS : Production d'un modèle conceptuel (MCD) normalisé en 3NF via WinDesign, d'un modèle logique (MLR) et d'un script SQL DDL/DML de 450 lignes intégrant contraintes d'intégrité référentielle, triggers et procédures stockées. | OUTILS & MÉTHODES : Win'Design, SQL (PostgreSQL/MySQL), algèbre relationnelle, contraintes CHECK/FOREIGN KEY, indexation b-tree. | COMPÉTENCES : Optimiser (structuration rigoureuse des données, intégrité transactionnelle et performance des requêtes SQL complexes).">Voir
+                data-modal-desc="Conception et refonte complète de la base de données relationnelle de la plateforme Musicalertes afin de centraliser la gestion des artistes, concerts, salles, festivals et alertes d'abonnés. || La modélisation s'appuie sur un modèle conceptuel de données (MCD) normalisé réalisé sous Win'Design, converti en modèle logique relationnel (MLR) et implémenté via un script SQL de création et de peuplement intégrant contraintes d'intégrité référentielle, déclencheurs et requêtes d'exploitation.">Voir
                 le projet</a>
             </footer>
           </article>
@@ -263,7 +262,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link"
-                data-modal-desc="CDC : Déployer et configurer une machine virtuelle Debian 13 légère (allocation RAM 8 Go max) sous environnement virtualisé pour deux profils utilisateurs isolés (Alice admin système, Bob développeur). | RÉSULTATS : Partitionnement de disques optimisé (LVM, ext4), automatisation complète du provisioning logiciel par script Bash modulaire et validation sans erreur via le script de test automatisé test.sh. | OUTILS & MÉTHODES : Linux Debian 13 (Xfce), VMware Workstation/ESXi, Bash scripting avancé, gestion des permissions ACL/sudoers, VS Code, Leiningen, Git. | COMPÉTENCES : Administrer (installation, gestion granulaire des privilèges utilisateurs et automatisation de l'infrastructure système).">Voir
+                data-modal-desc="Déploiement et configuration d'une machine virtuelle Linux Debian 12 légère et sécurisée, dimensionnée pour un usage multi-utilisateurs avec isolation stricte des profils d'administration et de développement. || L'infrastructure intègre un partitionnement standard avec /, /home et swap, une automatisation complète du provisionnement logiciel par script Bash modulaire, ainsi qu'une validation rigoureuse validée sans aucune erreur par un script de test automatisé.">Voir
                 le projet</a>
             </footer>
           </article>
@@ -285,7 +284,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link"
-                data-modal-desc="CDC : Réaliser un diagnostic fonctionnel, macro et micro-environnemental de la maison Baillardran suite à des contraintes réglementaires et de réputation pour formuler des recommandations de pivot. | RÉSULTATS : Analyse approfondie des 6 piliers fonctionnels (PESTEL, 5 forces de Porter, matrice SWOT, ratio financiers Diane+), cartographie des risques et soutenance orale de restitution notée avec succès devant jury académique et professionnel. | OUTILS & MÉTHODES : Matrice PESTEL, 5 forces de Porter, diagnostic financier Diane+, gouvernance de projet agile, animation de réunions de synthèse. | COMPÉTENCES : Collaborer (s'intégrer dans une dynamique d'équipe pluridisciplinaire, structurer un planning Gantt et appréhender les enjeux économiques et juridiques d'une organisation).">Voir
+                data-modal-desc="Réalisation d'un diagnostic fonctionnel, macro et micro-environnemental approfondi de l'entreprise Maison Baillardran afin de formuler des axes de pivot stratégique face aux évolutions réglementaires et concurrentielles. || L'analyse s'articule autour des six piliers fondamentaux incluant la matrice PESTEL, les 5 forces de Porter, la matrice SWOT et l'analyse des ratios financiers Diane+, couronnée par une soutenance orale de restitution devant un jury professionnel.">Voir
                 le projet</a>
             </footer>
           </article>
@@ -306,7 +305,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link" data-modal-img="assets/butopia-rpg-manager.png"
-                data-modal-desc="CDC : Développer un logiciel de bureau événementiel en C# WinForms pour la création de fiches de personnages, la simulation de lancers de dés probabilistes et la gestion de campagnes de jeux de rôles. | RÉSULTATS : Interface graphique ergonomique avec gestion d'événements, système de modificateurs dynamiques de caractéristiques et suite complète de 32 tests unitaires NUnit garantissant la fiabilité des calculs de combat. | OUTILS & MÉTHODES : C#, .NET Framework / WinForms, Visual Studio 2022, modélisation UML (diagrammes de classes, séquence), tests unitaires NUnit. | COMPÉTENCES : Réaliser (conception logicielle événementielle et orientée objet) & Valider (rigueur de test sur les calculs stochastiques et respect des règles métier).">Voir
+                data-modal-desc="Développement d'une application de bureau événementielle en C# WinForms conçue pour assister les joueurs dans la création de fiches de personnages, la simulation de lancers de dés probabilistes et le déroulement d'épreuves de jeu de rôles. || L'architecture logicielle s'articule autour d'une modélisation UML préalable, d'une interface graphique réactive avec gestion dynamique des caractéristiques et d'une suite de tests unitaires NUnit validant les règles métier et les calculs de probabilités.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/butopia-rpg-manager" target="_blank" rel="noopener noreferrer"
                 class="btn-project-source">Code source</a>
@@ -330,7 +329,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link" data-modal-img="assets/graph-coloring-visualizer.png"
-                data-modal-desc="CDC : Implémenter une structure de données de graphe orientée objet en Java et concevoir trois algorithmes de coloration (Welsh-Powell, 6-coloration planaire et 5-coloration récursive) pour graphes complexes. | RÉSULTATS : Traitement robuste de graphes planaires de grande taille (jusqu'à 2 000 sommets), respect strict des invariants topologiques et benchmark d'exécution démontrant une complexité en O(V log V). | OUTILS & MÉTHODES : Java SE, NetBeans, théorie des graphes, analyse de complexité temporelle/spatiale Big-O, tests unitaires JUnit. | COMPÉTENCES : Optimiser (choix de structures de données adéquates et implémentation d'algorithmes avancés à haute efficacité temporelle).">Voir
+                data-modal-desc="Implémentation d'une structure de données de graphe orientée objet en Java et développement de trois algorithmes avancés de coloration pour traiter des topologies complexes. || Le programme gère efficacement des graphes planaires de grande envergure atteignant jusqu'à 2 000 sommets, tout en respectant les invariants topologiques et en validant des performances de complexité temporelle en O(V log V) vérifiées par des tests JUnit.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/graph-coloring-visualizer" target="_blank"
                 rel="noopener noreferrer" class="btn-project-source">Code source</a>
@@ -354,7 +353,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link" data-modal-img="assets/nextcloud-infrastructure-deployment.png"
-                data-modal-desc="CDC : Déployer une architecture réseau partitionnée en sous-réseaux isolés interconnectés par un routeur Linux passerelle, hébergeant des services cloud collaboratifs sécurisés Nextcloud et OnlyOffice. | RÉSULTATS : Routage IP statique opérationnel, mise en place d'un pare-feu stateful, chiffrement TLS 1.3 avec certificats auto-signés/Let's Encrypt, authentification 2FA/TOTP et validation des flux de synchronisation bureautique. | OUTILS & MÉTHODES : Linux Debian, émulateur réseau NEmu, routage Linux (ip route, iptables/nftables), Nextcloud Server, OnlyOffice Document Server, Apache/Nginx. | COMPÉTENCES : Administrer (conception d'architectures réseau étanches, durcissement de la sécurité des flux et administration de services cloud souverains).">Voir
+                data-modal-desc="Déploiement d'une architecture réseau cloisonnée en sous-réseaux isolés et interconnectés par un routeur Linux passerelle afin d'héberger des services cloud collaboratifs sécurisés. || L'environnement intègre un routage et un adressage IP statiques, un pare-feu de filtrage des flux, le chiffrement HTTPS via certificats auto-signés ainsi que le déploiement et l'interconnexion opérationnelle de Nextcloud et OnlyOffice.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/nextcloud-infrastructure-deployment" target="_blank"
                 rel="noopener noreferrer" class="btn-project-source">Code source</a>
@@ -378,7 +377,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link" data-modal-img="assets/climate-risk-analytics.png"
-                data-modal-desc="CDC : Traiter, nettoyer et transformer des jeux de données massifs Open Data (inondations, feux de forêt, données météorologiques sur 15 ans) en tableaux de bord visuels et interactifs pour la région Nouvelle-Aquitaine. | RÉSULTATS : Fusion de 142 000 enregistrements, génération automatisée de cartes choroplèthes, scatter plots et matrices de corrélation statistique, et présentation technique bilingue (français/anglais). | OUTILS & MÉTHODES : Python 3.10+, Pandas, NumPy, Matplotlib, Plotly, régressions statistiques, Pair Programming, Git. | COMPÉTENCES : Gérer (structuration et nettoyage de jeux de données massifs) & Collaborer (développement agile en binôme, gestion de version et communication scientifique de synthèse).">Voir
+                data-modal-desc="Traitement, nettoyage et analyse exploratoire de jeux de données Open Data régionaux portant sur les aléas naturels, les inondations et les risques climatiques en Nouvelle-Aquitaine. || Le pipeline Python développé en binôme fusionne et normalise les données géographiques et météorologiques pour générer des cartographies interactives et des graphiques statistiques décisionnels, accompagnés d'une restitution technique bilingue.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/climate-risk-analytics" target="_blank" rel="noopener noreferrer"
                 class="btn-project-source">Code source</a>
@@ -401,7 +400,7 @@
             </ul>
             <footer class="project-footer">
               <a href="#project-modal" class="btn-project-link" data-modal-img="assets/javafx-labyrinth-crawler.png"
-                data-modal-desc="CDC : Développer un jeu d'exploration de labyrinthe 2D multi-étages en JavaFX intégrant des entités mobiles dotées d'IA de poursuite et un calcul temps réel du plus court chemin via des graphes pondérés. | RÉSULTATS : Rendu graphique fluide à 60 FPS constants, gestion de la concurrence multithread (CopyOnWriteArrayList), dragon traqueur et tracé instantané de la sortie via l'algorithme de Dijkstra en 2.4 ms. | OUTILS & MÉTHODES : Java, JavaFX, NetBeans, Maven, bibliothèque JGraphT, polymorphisme avancé, programmation concurrente, Git. | COMPÉTENCES : Réaliser (architecture logicielle modulaire graphique complexe) & Optimiser (intégration de librairies tierces spécialisées et algorithmique de graphes temps réel).">Voir
+                data-modal-desc="Développement en autonomie complète sur deux semaines et plus de 50 commits d'un jeu d'exploration de labyrinthe 2D multi-étages en JavaFX, mettant en scène un héros piloté au clavier et des entités autonomes polymorphes. || L'application sépare strictement la logique métier du rendu graphique fluide à 60 FPS, gère les accès concurrents (CopyOnWriteArrayList) et intègre la bibliothèque JGraphT pour tracer en temps réel le plus court chemin vers la sortie via l'algorithme de Dijkstra.">Voir
                 le projet</a>
               <a href="https://github.com/TLableigne/javafx-labyrinth-crawler" target="_blank" rel="noopener noreferrer"
                 class="btn-project-source">Code source</a>
@@ -482,7 +481,7 @@
       <h3 id="modal-title"></h3>
       <div class="modal-body">
         <img id="modal-img" src="" alt="Aperçu du projet" />
-        <p id="modal-desc"></p>
+        <div id="modal-desc"></div>
       </div>
     </div>
   </div>
@@ -494,7 +493,6 @@
   </footer>
 
   <script src="js/script.js"></script>
-  <script src="js/modal.js"></script>
   <script src="js/ui.js"></script>
 </body>
 
