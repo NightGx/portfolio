@@ -2,12 +2,17 @@ const contactForm = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
 const submitBtn = document.getElementById("submit-btn");
 
+const getI18nText = (key, fallback) =>
+  window.portfolioI18n && typeof window.portfolioI18n.t === "function"
+    ? window.portfolioI18n.t(key, fallback)
+    : fallback;
+
 contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   // Verrouillage du bouton pendant l'envoi
   submitBtn.disabled = true;
-  formStatus.textContent = "Envoi en cours...";
+  formStatus.textContent = getI18nText("form_status_sending", "Envoi en cours...");
   formStatus.style.color = "";
 
   const payload = {
@@ -29,11 +34,11 @@ contactForm.addEventListener("submit", async (e) => {
       throw new Error(`Erreur réseau (${response.status})`);
     }
 
-    formStatus.textContent = "Message envoyé avec succès !";
+    formStatus.textContent = getI18nText("form_status_success", "Message envoyé avec succès !");
     formStatus.style.color = "#4ade80"; // Vert
     contactForm.reset();
   } catch (error) {
-    formStatus.textContent = "Échec de l'envoi. Réessaie plus tard.";
+    formStatus.textContent = getI18nText("form_status_error", "Échec de l'envoi. Réessaie plus tard.");
     formStatus.style.color = "#f87171"; // Rouge
   } finally {
     submitBtn.disabled = false;
