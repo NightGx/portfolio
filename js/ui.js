@@ -104,6 +104,29 @@ function applyTranslations(dict) {
   syncThemeToggleAccessibility(document.body.classList.contains('theme-dark'));
 }
 
+function detectInitialLanguage() {
+  const savedLang = getCookie('lang');
+  if (savedLang && SUPPORTED_LANGS.includes(savedLang)) {
+    return savedLang;
+  }
+  const browserLang = (navigator.language || navigator.userLanguage || 'fr').toLowerCase();
+  return browserLang.startsWith('en') ? 'en' : 'fr';
+}
+
+async function setLanguage(lang, persist = true) {
+  const normalizedLang = SUPPORTED_LANGS.includes(lang) ? lang : 'fr';
+  currentLang = normalizedLang;
+
+  if (persist) {
+    setCookie('lang', normalizedLang);
+  }
+
+  const dict = await loadTranslations(normalizedLang);
+  if (currentLang === normalizedLang) {
+    applyTranslations(dict);
+  }
+}
+
 // --- GESTION DU FOND ANIMÉ ---
 const savedBgState = getCookie('bg-paused');
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -151,8 +174,19 @@ if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
 }
 syncThemeToggleAccessibility(document.body.classList.contains('theme-dark'));
 
+// Initialisation de la langue au chargement
+setLanguage(detectInitialLanguage(), false);
+
 // Écouteur global pour les boutons
 document.addEventListener('click', (event) => {
+  // Toggle Langue (FR / EN)
+  const langBtn = event.target.closest('#lang-toggle-btn, .lang-switch');
+  if (langBtn) {
+    const nextLang = currentLang === 'fr' ? 'en' : 'fr';
+    setLanguage(nextLang, true);
+    return;
+  }
+
   // Toggle Fond animé
   const bgBtn = event.target.closest('#bg-toggle-btn');
   if (bgBtn) {
