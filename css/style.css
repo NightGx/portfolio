@@ -90,11 +90,11 @@
    2. MODE SOMBRE APPLIQUÉ SUR body.theme-dark (Noirs quasi neutres)
    ========================================================================== */
 body.theme-dark {
-  /* Variables d'interface : noirs quasi neutres */
-  --bg-color: #0c0d0c;
-  --card-bg: #151716;
-  --card-bg-hover: #1c1f1d;
-  --border-color: #262a28;
+  /* Variables d'interface : noirs quasi neutres (+5% luminosité) */
+  --bg-color: #181a18;
+  --card-bg: #222523;
+  --card-bg-hover: #282d2a;
+  --border-color: #323735;
   --card-top-border: var(--c-sage);
   --card-hover-border: var(--c-forest);
   --card-hover-top-border: var(--c-forest);
@@ -102,14 +102,14 @@ body.theme-dark {
   --card-hover-shadow: 0 12px 26px rgba(0, 0, 0, 0.7);
 
   --text-main: var(--c-paper);
-  --text-muted: #a5aba6;
+  --text-muted: #b2b7b3;
   --title-color: var(--c-forest);
 
-  --header-bg: rgba(12, 13, 12, 0.92);
-  --header-border: #262a28;
+  --header-bg: rgba(24, 26, 24, 0.92);
+  --header-border: #323735;
   --nav-link-color: var(--c-mist);
   --nav-link-hover: #ffffff;
-  --icon-btn-bg-hover: rgba(255, 255, 255, 0.06);
+  --icon-btn-bg-hover: rgba(255, 255, 255, 0.08);
 
   --accent: var(--c-sage-light);
   --accent-hover: var(--c-mist);
@@ -122,26 +122,26 @@ body.theme-dark {
   --btn-secondary-bg: transparent;
   --btn-secondary-text: var(--c-paper);
   --btn-secondary-border: var(--border-color);
-  --btn-secondary-hover-bg: #212623;
+  --btn-secondary-hover-bg: #2d3430;
 
-  --tag-bg: rgba(95, 140, 109, 0.14);
+  --tag-bg: rgba(105, 152, 119, 0.16);
   --tag-text: var(--c-sage-light);
-  --tag-border: rgba(134, 179, 148, 0.25);
+  --tag-border: rgba(149, 189, 162, 0.28);
 
-  --input-focus-ring: rgba(134, 179, 148, 0.2);
-  --modal-overlay-bg: rgba(0, 0, 0, 0.82);
+  --input-focus-ring: rgba(149, 189, 162, 0.22);
+  --modal-overlay-bg: rgba(13, 13, 13, 0.82);
   --modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
-  --tooltip-bg: #1f2924;
+  --tooltip-bg: #2a3731;
   --tooltip-text: var(--c-paper);
-  --tooltip-border: rgba(134, 179, 148, 0.3);
+  --tooltip-border: rgba(149, 189, 162, 0.32);
   --tooltip-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
 
   /* Pas de dégradé avec halo blanc en mode sombre */
   --bg-gradient: none;
 
   /* Rayures quasi invisibles en gris neutre */
-  --stripe-color-1: rgba(255, 255, 255, 0.015);
-  --stripe-color-2: rgba(255, 255, 255, 0.03);
+  --stripe-color-1: rgba(255, 255, 255, 0.02);
+  --stripe-color-2: rgba(255, 255, 255, 0.04);
 }
 
 html {
