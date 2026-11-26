@@ -149,6 +149,31 @@
               </footer>
             </article>
 
+            <!-- Projet Personnel 4 : Local AI Email Triage -->
+            <article class="project-card">
+              <header class="project-header">
+                <h3>Local AI Email Triage & Security Automation (n8n + Ollama)</h3>
+              </header>
+              <p class="project-desc">
+                Pipeline d'automatisation 100 % local combinant un serveur Debian 24/7 (qwen2.5:3b) pour le tri IMAP continu et le réveil à la demande par Wake-on-LAN d'une station Arch Linux GPU (qwen3:14b) pour l'analyse de menaces géographiques et les alertes Discord.
+              </p>
+              <ul class="project-tags">
+                <li>n8n</li>
+                <li>Ollama</li>
+                <li>Docker</li>
+                <li>Linux / Bash</li>
+                <li>Wake-on-LAN</li>
+                <li>Discord Webhooks</li>
+              </ul>
+              <footer class="project-footer">
+                <a href="#project-modal" class="btn-project-link" data-modal-img="assets/n8n-local-mail-triage.png"
+                  data-modal-desc="Architecture hybride à deux niveaux entièrement auto-hébergée, sans aucune dépendance cloud : un serveur Debian 13 disponible 24h/24 (Ryzen 5 5500) assure l'écoute IMAP continue, le pré-tri JSON strict via qwen2.5:3b avec garde-fou de confiance (< 80 %) en JavaScript et le routage TLS vers les dossiers cibles. || En cas d'e-mail urgent ou ambigu, le script Bash arch-power.sh réveille à la demande par Wake-on-LAN une station Arch Linux (RX 6750 XT 12 Go VRAM) exécutant qwen3:14b (num_ctx: 4096, think: false) pour l'analyse de menaces géographiques et l'envoi d'embeds Discord (#E74C3C), avec détection du dual-boot Windows 11, priorité systemd anti-freeze Wayland/Hyprland et extinction conditionnelle à moindre privilège (safe-wol-shutdown).">Voir
+                  le projet</a>
+                <a href="https://github.com/TLableigne/n8n-local-mail-triage" target="_blank" rel="noopener noreferrer"
+                  class="btn-project-source">Code source</a>
+              </footer>
+            </article>
+
           </div>
         </div>
 
