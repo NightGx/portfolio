@@ -198,6 +198,10 @@ body.bg-paused .animated-bg {
   .animated-bg {
     animation-play-state: paused !important;
   }
+
+  body.bg-playing .animated-bg {
+    animation-play-state: running !important;
+  }
 }
 
 /* --- Layout général (Mobile-First) --- */
