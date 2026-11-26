@@ -13,7 +13,8 @@
 
 ## Key Features
 
-- **Dynamic UI/UX:** Pure CSS animated background with a manual pause toggle (saves user preference via `localStorage` and respects `prefers-reduced-motion`).
+- **Dynamic UI/UX & Cookie Persistence:** Pure CSS animated background with a manual pause/play toggle and Light/Dark theme switcher, persisted via native browser cookies (`document.cookie`, `path=/`, `SameSite=Lax`, `max-age=31536000`) with automatic OS preference fallbacks (`prefers-color-scheme` and `prefers-reduced-motion`).
+- **Dynamic Bilingual System (FR / EN):** Asynchronous JSON dictionary loading (`locales/fr.json` and `locales/en.json`) with live DOM translation via `data-i18n*` attributes (including localized FR/EN resume PDFs), automatic browser locale detection (`navigator.language`) persisted in a `lang` cookie, and synchronized `<html lang>` / switcher accessibility labels.
 - **Asynchronous Form:** Contact form that communicates directly with the Express API without page reloads.
 - **Separation of Concerns:** UI logic (`ui.js`) is strictly separated from business/backend logic (`script.js`).
 
@@ -29,12 +30,16 @@
 ├── nginx.conf
 ├── sync-portfolio.sh
 ├── assets/
-│   └── CV_Thomas_LABLEIGNE.pdf
+│   ├── cv-thomas-lableigne-fr.pdf
+│   └── cv-thomas-lableigne-en.pdf
 ├── css/
 │   └── style.css
 ├── js/
 │   ├── script.js
 │   └── ui.js
+├── locales/
+│   ├── fr.json
+│   └── en.json
 └── relay/
     ├── package.json
     ├── package-lock.json

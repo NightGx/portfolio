@@ -13,7 +13,8 @@
 
 ## Fonctionnalités Principales
 
-- **UI/UX Dynamique :** Arrière-plan animé en CSS pur avec bouton de pause (sauvegarde de la préférence utilisateur via `localStorage` et respect du `prefers-reduced-motion`).
+- **UI/UX Dynamique & Persistance par Cookies :** Arrière-plan animé en CSS pur avec bouton play/pause et sélecteur de thème Clair/Sombre, persistés via des cookies natifs (`document.cookie`, `path=/`, `SameSite=Lax`, `max-age=31536000`) avec repli automatique sur les préférences système (`prefers-color-scheme` et `prefers-reduced-motion`).
+- **Système Bilingue Dynamique (FR / EN) :** Chargement asynchrone des dictionnaires JSON (`locales/fr.json` et `locales/en.json`) et mise à jour dynamique du DOM via les attributs `data-i18n*` (incluant les CV PDF localisés FR/EN), détection automatique de la langue du navigateur (`navigator.language`) persistée dans le cookie `lang`, et synchronisation de `<html lang>` et des libellés d'accessibilité.
 - **Formulaire Asynchrone :** Formulaire de contact qui communique directement avec l'API Express sans rechargement de page.
 - **Séparation des responsabilités :** Logique d'interface (`ui.js`) séparée de la logique métier (`script.js`).
 
@@ -29,12 +30,16 @@
 ├── nginx.conf
 ├── sync-portfolio.sh
 ├── assets/
-│   └── CV_Thomas_LABLEIGNE.pdf
+│   ├── cv-thomas-lableigne-fr.pdf
+│   └── cv-thomas-lableigne-en.pdf
 ├── css/
 │   └── style.css
 ├── js/
 │   ├── script.js
 │   └── ui.js
+├── locales/
+│   ├── fr.json
+│   └── en.json
 └── relay/
     ├── package.json
     ├── package-lock.json
