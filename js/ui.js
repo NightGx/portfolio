@@ -104,6 +104,23 @@ function applyTranslations(dict) {
   syncThemeToggleAccessibility(document.body.classList.contains('theme-dark'));
 }
 
+function syncLanguageToggle(lang) {
+  document.documentElement.lang = lang;
+
+  const langBtn = document.getElementById('lang-toggle-btn') || document.querySelector('.lang-switch');
+  if (!langBtn) return;
+
+  const nextLangLabel = lang === 'fr' ? 'EN' : 'FR';
+  const nextAriaLabel =
+    lang === 'fr'
+      ? t('aria_lang_to_en', 'Passer en anglais')
+      : t('aria_lang_to_fr', 'Switch to French');
+
+  langBtn.textContent = nextLangLabel;
+  langBtn.setAttribute('aria-label', nextAriaLabel);
+  langBtn.setAttribute('title', nextAriaLabel);
+}
+
 function detectInitialLanguage() {
   const savedLang = getCookie('lang');
   if (savedLang && SUPPORTED_LANGS.includes(savedLang)) {
@@ -116,6 +133,7 @@ function detectInitialLanguage() {
 async function setLanguage(lang, persist = true) {
   const normalizedLang = SUPPORTED_LANGS.includes(lang) ? lang : 'fr';
   currentLang = normalizedLang;
+  syncLanguageToggle(normalizedLang);
 
   if (persist) {
     setCookie('lang', normalizedLang);
@@ -124,6 +142,7 @@ async function setLanguage(lang, persist = true) {
   const dict = await loadTranslations(normalizedLang);
   if (currentLang === normalizedLang) {
     applyTranslations(dict);
+    syncLanguageToggle(normalizedLang);
   }
 }
 

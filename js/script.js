@@ -7,43 +7,51 @@ const getI18nText = (key, fallback) =>
     ? window.portfolioI18n.t(key, fallback)
     : fallback;
 
-contactForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  // Verrouillage du bouton pendant l'envoi
-  submitBtn.disabled = true;
-  formStatus.textContent = getI18nText("form_status_sending", "Envoi en cours...");
-  formStatus.style.color = "";
-
-  const payload = {
-    name: document.getElementById("name").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    message: document.getElementById("message").value.trim(),
-  };
-
-  try {
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Erreur réseau (${response.status})`);
+    // Verrouillage du bouton pendant l'envoi
+    if (submitBtn) submitBtn.disabled = true;
+    if (formStatus) {
+      formStatus.textContent = getI18nText("form_status_sending", "Envoi en cours...");
+      formStatus.style.color = "";
     }
 
-    formStatus.textContent = getI18nText("form_status_success", "Message envoyé avec succès !");
-    formStatus.style.color = "#4ade80"; // Vert
-    contactForm.reset();
-  } catch (error) {
-    formStatus.textContent = getI18nText("form_status_error", "Échec de l'envoi. Réessaie plus tard.");
-    formStatus.style.color = "#f87171"; // Rouge
-  } finally {
-    submitBtn.disabled = false;
-  }
-});
+    const payload = {
+      name: document.getElementById("name")?.value.trim() || "",
+      email: document.getElementById("email")?.value.trim() || "",
+      message: document.getElementById("message")?.value.trim() || "",
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erreur réseau (${response.status})`);
+      }
+
+      if (formStatus) {
+        formStatus.textContent = getI18nText("form_status_success", "Message envoyé avec succès !");
+        formStatus.style.color = "#4ade80"; // Vert
+      }
+      contactForm.reset();
+    } catch (error) {
+      if (formStatus) {
+        formStatus.textContent = getI18nText("form_status_error", "Échec de l'envoi. Réessaie plus tard.");
+        formStatus.style.color = "#f87171"; // Rouge
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+}
 
 // --- MODAL DE PRÉVISUALISATION DES PROJETS ---
 const projectModal = document.getElementById("project-modal");
