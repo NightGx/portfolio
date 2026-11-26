@@ -100,6 +100,20 @@ function applyTranslations(dict) {
     }
   });
 
+  document.querySelectorAll('[data-i18n-href]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-href');
+    if (key && Object.prototype.hasOwnProperty.call(dict, key)) {
+      el.setAttribute('href', dict[key]);
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-download]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-download');
+    if (key && Object.prototype.hasOwnProperty.call(dict, key)) {
+      el.setAttribute('download', dict[key]);
+    }
+  });
+
   syncBgToggleAccessibility(document.body.classList.contains('bg-paused'));
   syncThemeToggleAccessibility(document.body.classList.contains('theme-dark'));
 }

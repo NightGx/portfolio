@@ -85,6 +85,8 @@
   "resume_desc": "View the full details of my academic and technical background.",
   "resume_download": "Download my Resume (PDF)",
   "resume_view": "View online",
+  "resume_pdf_href": "assets/cv-thomas-lableigne-en.pdf",
+  "resume_pdf_filename": "cv-thomas-lableigne-en.pdf",
   "contact_title": "Contact",
   "contact_desc": "Feel free to reach out via the contact form or by email.",
   "contact_direct_title": "Direct email",

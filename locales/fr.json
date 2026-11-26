@@ -85,6 +85,8 @@
   "resume_desc": "Retrouvez le détail de mon parcours académique et technique.",
   "resume_download": "Télécharger mon CV (PDF)",
   "resume_view": "Consulter en ligne",
+  "resume_pdf_href": "assets/cv-thomas-lableigne-fr.pdf",
+  "resume_pdf_filename": "cv-thomas-lableigne-fr.pdf",
   "contact_title": "Contact",
   "contact_desc": "N'hésitez pas à me contacter via le formulaire ou par e-mail.",
   "contact_direct_title": "Par e-mail direct",
